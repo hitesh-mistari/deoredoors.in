@@ -25,8 +25,8 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Determine if we should show the dark header
-  const shouldShowDark = isScrolled || pathname !== '/';
+  // Header is transparent on all pages initially, becomes solid when scrolled
+  const shouldShowDark = isScrolled;
 
   const dynamicHeaderStyle = {
     ...headerStyle,

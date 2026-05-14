@@ -14,6 +14,7 @@ import GalleryPage from './components/GalleryPage';
 import ContactPage from './components/ContactPage';
 import ContactShortcuts from './components/ContactShortcuts';
 import ScrollToTop from './components/ScrollToTop';
+import HowToReach from './components/HowToReach';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Reviews />
               <Features />
               <About />
+              <HowToReach />
             </>
           } />
           <Route path="/about" element={<AboutPage />} />

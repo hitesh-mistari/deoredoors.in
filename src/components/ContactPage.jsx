@@ -13,14 +13,6 @@ const ContactPage = () => {
           </>
         }
         description="Visit our showroom in Nashik or get in touch with us. We're here to help you choose the perfect doors for your home or project."
-        primaryButton={{
-          text: "Get Directions →",
-          link: "https://maps.google.com/?q=Deore+Doors+Nashik"
-        }}
-        secondaryButton={{
-          text: "Call Now",
-          link: "tel:+917350131608"
-        }}
         features={[
           {
             icon: <MapPin size={18} strokeWidth={1.5} />,
@@ -42,8 +34,8 @@ const ContactPage = () => {
 
       <div style={{ paddingTop: '80px' }}>
         <div className="container">
-          <div style={gridStyle}>
-            <div style={infoColStyle}>
+          <div style={gridStyle} className="contact-page-grid">
+            <div style={infoColStyle} className="contact-info-col">
               <h3>Visit Our Showroom</h3>
               <p style={{ color: 'var(--text-muted)', marginBottom: '30px' }}>We are ready to help you choose the best doors for your home. Visit us today!</p>
               
@@ -80,7 +72,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div style={formColStyle}>
+            <div style={formColStyle} className="contact-form-col">
               <form style={formStyle}>
                 <div style={inputGroupStyle}>
                   <input type="text" placeholder="Your Name" style={inputStyle} />
@@ -106,5 +98,68 @@ const formColStyle = { background: 'white', padding: '40px', borderRadius: '24px
 const formStyle = { display: 'flex', flexDirection: 'column', gap: '20px' };
 const inputGroupStyle = { display: 'flex', gap: '20px' };
 const inputStyle = { width: '100%', padding: '15px', borderRadius: '10px', border: '1px solid #eee', outline: 'none', background: '#f9f9f9' };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 992px) {
+      .contact-page-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-page-grid {
+        gap: 30px !important;
+      }
+      
+      .contact-form-col {
+        padding: 30px !important;
+        border-radius: 20px !important;
+      }
+      
+      .contact-info-col h3 {
+        font-size: 1.5rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .contact-page-grid {
+        gap: 20px !important;
+      }
+      
+      .contact-form-col {
+        padding: 20px !important;
+        border-radius: 16px !important;
+      }
+      
+      .contact-info-col h3 {
+        font-size: 1.3rem !important;
+      }
+      
+      .contact-info-col h4 {
+        font-size: 1rem !important;
+      }
+      
+      .contact-info-col p {
+        font-size: 0.85rem !important;
+      }
+      
+      .contact-form-col form > div:first-child {
+        flex-direction: column !important;
+        gap: 15px !important;
+      }
+      
+      .contact-form-col input,
+      .contact-form-col textarea {
+        padding: 12px !important;
+        font-size: 0.9rem !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default ContactPage;

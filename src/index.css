@@ -241,12 +241,7 @@ button {
   }
 }
 
-/* Prevent horizontal scroll on all screen sizes */
-* {
-  max-width: 100%;
-}
-
-/* Allow specific elements to exceed container */
+/* Ensure media elements don't overflow */
 img, video, iframe {
   max-width: 100%;
   height: auto;

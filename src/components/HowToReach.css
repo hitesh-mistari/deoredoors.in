@@ -1,0 +1,238 @@
+.how-to-reach-section {
+  padding: 80px 0;
+  background-color: #fcfbf9;
+  /* Light off-white matching the design */
+  font-family: 'Inter', sans-serif;
+}
+
+.how-to-reach-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.reach-info {
+  flex: 1;
+  max-width: 500px;
+}
+
+.reach-info .section-label {
+  color: #a16421;
+  /* var(--primary-dark) */
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.reach-info .section-title {
+  font-size: 3rem;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-align: left;
+}
+
+.reach-info .reach-description {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  background-color: #f6efe6;
+  padding: 15px 20px;
+  border-radius: 12px;
+  gap: 15px;
+}
+
+.contact-icon {
+  background-color: #b0702c;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-details h4 {
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.contact-details p {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.reach-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.reach-actions .btn-directions {
+  background-color: #b0702c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #b0702c;
+}
+
+.reach-actions .btn-directions:hover {
+  background-color: #8c5923;
+  border-color: #8c5923;
+}
+
+.reach-actions .btn-call {
+  background-color: transparent;
+  color: #1a1a1a;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #ccc;
+}
+
+.reach-actions .btn-call:hover {
+  background-color: #f0f0f0;
+}
+
+.reach-actions .btn-call svg {
+  color: #b0702c;
+}
+
+.reach-map {
+  flex: 1.2;
+  /* background-color: white; */
+  /* padding: 15px; */
+  /* border-radius: 20px; */
+  /* border: 1px solid #eee; */
+}
+
+.reach-map img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.help-banner {
+  background-color: #291e14;
+  background-image: linear-gradient(to right, #291e14, #3a2c1f);
+  border-radius: 16px;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.help-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.help-icon {
+  color: #b0702c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.help-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.help-text p {
+  color: #ccc;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.btn-help {
+  background-color: #b0702c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-help:hover {
+  background-color: #8c5923;
+}
+
+@media (max-width: 992px) {
+  .how-to-reach-content {
+    flex-direction: column;
+  }
+
+  .reach-info {
+    max-width: 100%;
+  }
+
+  .help-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .help-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .reach-info .section-title {
+    font-size: 2.2rem;
+  }
+
+  .reach-actions {
+    flex-direction: column;
+  }
+
+  .reach-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+}

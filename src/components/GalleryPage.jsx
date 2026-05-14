@@ -16,14 +16,6 @@ const GalleryPage = () => {
           </>
         }
         description="Explore our portfolio of completed projects. From residential homes to commercial spaces, see the quality and craftsmanship that defines Deore Doors."
-        primaryButton={{
-          text: "Start Your Project →",
-          link: "/contact"
-        }}
-        secondaryButton={{
-          text: "View Products",
-          link: "/products"
-        }}
         features={[
           {
             icon: <Image size={18} strokeWidth={1.5} />,
@@ -45,12 +37,12 @@ const GalleryPage = () => {
 
       <div style={{ paddingTop: '80px' }}>
         <div className="container">
-          <div style={gridStyle}>
+          <div style={gridStyle} className="gallery-page-grid">
             {photos.map((photo, idx) => (
               <div 
                 key={idx} 
                 style={itemStyle} 
-                className="gallery-item"
+                className="gallery-item gallery-page-item"
                 onClick={() => setSelectedPhoto(photo)}
               >
                 <img 
@@ -73,7 +65,7 @@ const GalleryPage = () => {
       {/* Lightbox Modal */}
       {selectedPhoto && (
         <div style={modalOverlayStyle} onClick={() => setSelectedPhoto(null)}>
-          <div style={modalContentStyle} onClick={e => e.stopPropagation()}>
+          <div style={modalContentStyle} className="gallery-modal-content" onClick={e => e.stopPropagation()}>
             <button style={closeButtonStyle} onClick={() => setSelectedPhoto(null)}>×</button>
             <img 
               src={selectedPhoto.url} 
@@ -82,8 +74,8 @@ const GalleryPage = () => {
               referrerPolicy="no-referrer"
             />
             {selectedPhoto.title && (
-              <div style={modalInfoStyle}>
-                <p style={modalTitleStyle}>{selectedPhoto.title}</p>
+              <div style={modalInfoStyle} className="gallery-modal-info">
+                <p style={modalTitleStyle} className="gallery-modal-title">{selectedPhoto.title}</p>
               </div>
             )}
           </div>
@@ -204,5 +196,48 @@ const modalTitleStyle = {
   color: '#2d3748',
   margin: 0,
 };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 768px) {
+      .gallery-page-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+        gap: 15px !important;
+      }
+      
+      .gallery-page-item {
+        height: 250px !important;
+        border-radius: 12px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-page-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      
+      .gallery-page-item {
+        height: 220px !important;
+        border-radius: 10px !important;
+      }
+      
+      .gallery-modal-content {
+        border-radius: 12px !important;
+      }
+      
+      .gallery-modal-info {
+        padding: 15px !important;
+      }
+      
+      .gallery-modal-title {
+        font-size: 0.9rem !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default GalleryPage;

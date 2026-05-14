@@ -10,7 +10,9 @@ const PageHeader = ({
   secondaryButton, 
   features,
   rightImage,
-  imageAlt = "Deore Doors"
+  imageAlt = "Deore Doors",
+  height = '60vh',
+  minHeight = '500px'
 }) => {
   // Default features if none provided
   const defaultFeatures = [
@@ -34,20 +36,20 @@ const PageHeader = ({
   const displayFeatures = features || defaultFeatures;
 
   return (
-    <section style={{ ...heroStyle, background: `url(${bgImage.src || bgImage}) no-repeat center center/cover` }}>
+    <section className="page-header-section" style={{ ...heroStyle, height, minHeight, background: `url(${bgImage.src || bgImage}) no-repeat center center/cover` }}>
       <div style={overlayStyle}></div>
       <div className="container" style={heroContainerStyle}>
-        <div style={heroContentStyle} className="animate-fade-in">
-          <h1 style={titleStyle}>
+        <div style={heroContentStyle} className="animate-fade-in page-header-left">
+          <h1 style={titleStyle} className="page-header-title">
             {title}
           </h1>
           {subtitle && <p style={subtitleTextStyle}>{subtitle}</p>}
-          <p style={descriptionStyle}>
+          <p style={descriptionStyle} className="page-header-desc">
             {description}
           </p>
           
           {(primaryButton || secondaryButton) && (
-            <div style={btnGroupStyle}>
+            <div style={btnGroupStyle} className="page-header-btns">
               {primaryButton && (
                 <Link 
                   to={primaryButton.link} 
@@ -69,9 +71,9 @@ const PageHeader = ({
             </div>
           )}
           
-          <div style={statsGroupStyle}>
+          <div style={statsGroupStyle} className="page-header-stats">
             {displayFeatures.map((feature, index) => (
-              <div key={index} style={statItemStyle}>
+              <div key={index} style={statItemStyle} className="page-header-stat-item">
                 <div style={iconWrapperStyle}>
                   {feature.icon}
                 </div>
@@ -86,7 +88,7 @@ const PageHeader = ({
 
         {/* Right side image - only show if provided */}
         {rightImage && (
-          <div style={heroImageContainerStyle}>
+          <div style={heroImageContainerStyle} className="page-header-image">
             <img src={rightImage} alt={imageAlt} style={heroImageStyle} />
           </div>
         )}
@@ -96,8 +98,6 @@ const PageHeader = ({
 };
 
 const heroStyle = {
-  height: '82vh',
-  minHeight: '600px',
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -111,11 +111,12 @@ const overlayStyle = {
   width: '100%',
   height: '100%',
   background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%)',
+  zIndex: 0,
 };
 
 const heroContainerStyle = {
   position: 'relative',
-  zIndex: 1,
+  zIndex: 2,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -141,12 +142,16 @@ const titleStyle = {
   lineHeight: 1.1,
   marginBottom: '20px',
   fontWeight: 600,
+  color: 'white !important',
+  position: 'relative',
+  zIndex: 3,
 };
 
 const descriptionStyle = {
   fontSize: '1rem',
   opacity: 0.9,
   marginBottom: '25px',
+  color: 'white',
 };
 
 const btnGroupStyle = {
@@ -184,12 +189,14 @@ const statTitleStyle = {
   fontWeight: 600,
   fontSize: '0.9rem',
   whiteSpace: 'nowrap',
+  color: 'white',
 };
 
 const statSubStyle = {
   fontSize: '0.8rem',
   opacity: 0.8,
   whiteSpace: 'nowrap',
+  color: 'white',
 };
 
 const heroImageContainerStyle = {
@@ -209,101 +216,84 @@ const heroImageStyle = {
   filter: 'drop-shadow(0 20px 50px rgba(0,0,0,0.5))',
 };
 
-// Add responsive styles
+// Scoped responsive styles using class-based selectors
 if (typeof document !== 'undefined') {
   const style = document.createElement('style');
   style.textContent = `
+    .page-header-title {
+      color: white !important;
+    }
+    
     @media (max-width: 992px) {
-      section > div > div:last-child {
+      .page-header-image {
         display: none !important;
       }
     }
     
     @media (max-width: 768px) {
-      section {
-        min-height: 500px !important;
+      .page-header-section {
+        min-height: 450px !important;
         height: auto !important;
         padding: 100px 0 50px !important;
       }
       
-      section h1 {
+      .page-header-title {
         font-size: 2.2rem !important;
         line-height: 1.2 !important;
       }
       
-      section p[style*="fontSize: '1rem'"] {
+      .page-header-desc {
         font-size: 0.9rem !important;
         line-height: 1.5 !important;
       }
       
-      section div[style*="gap: 30px"] {
+      .page-header-stats {
         gap: 15px !important;
         flex-wrap: wrap !important;
       }
       
-      section div[style*="marginBottom: 35px"] {
+      .page-header-btns {
         margin-bottom: 25px !important;
-      }
-      
-      section div[style*="marginBottom: 25px"] {
-        margin-bottom: 20px !important;
       }
     }
     
     @media (max-width: 480px) {
-      section {
+      .page-header-section {
         padding: 90px 0 40px !important;
-        min-height: 450px !important;
+        min-height: 400px !important;
       }
       
-      section h1 {
+      .page-header-title {
         font-size: 1.8rem !important;
         line-height: 1.2 !important;
       }
       
-      section p[style*="fontSize: '1rem'"],
-      section p[style*="fontSize: '0.9rem'"] {
+      .page-header-desc {
         font-size: 0.85rem !important;
         line-height: 1.5 !important;
       }
       
-      section button, section a.btn {
+      .page-header-btns {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .page-header-btns .btn {
         width: 100%;
         justify-content: center;
         padding: 10px 16px !important;
         font-size: 0.85rem !important;
       }
       
-      section div[style*="gap: 15px"][style*="flexWrap"] {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px !important;
-      }
-      
-      section div[style*="gap: 30px"],
-      section div[style*="gap: 20px"],
-      section div[style*="gap: 15px"] {
-        gap: 12px !important;
+      .page-header-stats {
         flex-direction: column !important;
+        gap: 12px !important;
         align-items: flex-start !important;
       }
       
-      section div[style*="width: 40px"] {
-        width: 35px !important;
-        height: 35px !important;
-      }
-      
-      section svg {
+      .page-header-stat-item svg {
         width: 16px !important;
         height: 16px !important;
-      }
-      
-      section p[style*="fontSize: '0.9rem'"][style*="whiteSpace"] {
-        font-size: 0.8rem !important;
-      }
-      
-      section p[style*="fontSize: '0.8rem'"][style*="whiteSpace"] {
-        font-size: 0.75rem !important;
       }
     }
   `;

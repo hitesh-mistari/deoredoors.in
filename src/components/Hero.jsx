@@ -5,6 +5,8 @@ const Hero = () => {
   return (
     <div id="home">
       <PageHeader
+        height="81vh"
+        minHeight="600px"
         title={
           <>
             Doors That <br />

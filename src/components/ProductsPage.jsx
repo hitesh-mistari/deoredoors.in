@@ -44,14 +44,6 @@ const ProductsPage = () => {
           </>
         }
         description="From PVC and Coating doors to Sagwani wood and modular furniture - discover quality products crafted with precision for your home."
-        primaryButton={{
-          text: "Get a Quote →",
-          link: "/contact"
-        }}
-        secondaryButton={{
-          text: "View Gallery",
-          link: "/gallery"
-        }}
         features={[
           {
             icon: <Package size={18} strokeWidth={1.5} />,
@@ -73,9 +65,9 @@ const ProductsPage = () => {
 
       <div style={{ paddingTop: '80px' }}>
         <div className="container">
-          <div style={gridStyle}>
+          <div style={gridStyle} className="products-page-grid">
             {categories.map(cat => (
-              <div key={cat.id} style={cardStyle}>
+              <div key={cat.id} style={cardStyle} className="products-card">
                 <div style={imageWrapperStyle}>
                   <img src={cat.image} alt={cat.title} style={imgStyle} />
                 </div>
@@ -99,5 +91,45 @@ const imageWrapperStyle = { height: '250px', overflow: 'hidden' };
 const imgStyle = { width: '100%', height: '100%', objectFit: 'cover' };
 const contentStyle = { padding: '25px' };
 const linkStyle = { color: 'var(--primary)', fontWeight: 600, fontSize: '0.9rem' };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 768px) {
+      .products-page-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      
+      .products-card {
+        border-radius: 16px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .products-page-grid {
+        gap: 15px !important;
+      }
+      
+      .products-card {
+        border-radius: 12px !important;
+      }
+      
+      .products-card > div:last-child {
+        padding: 20px !important;
+      }
+      
+      .products-card h3 {
+        font-size: 1.1rem !important;
+      }
+      
+      .products-card p {
+        font-size: 0.85rem !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default ProductsPage;

@@ -14,14 +14,6 @@ const AboutPage = () => {
           </>
         }
         description="Deore Doors was founded by Mr. Suresh Deore in 2020. From hands-on door fitting to a trusted local business, we've proudly served 500+ happy customers across Nashik."
-        primaryButton={{
-          text: "View Our Work →",
-          link: "/gallery"
-        }}
-        secondaryButton={{
-          text: "Contact Us",
-          link: "/contact"
-        }}
         features={[
           {
             icon: <Award size={18} strokeWidth={1.5} />,
@@ -43,7 +35,7 @@ const AboutPage = () => {
       
       <div style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="container">
-          <div style={gridStyle}>
+          <div style={gridStyle} className="about-page-grid">
           <div style={contentStyle}>
             <h3 style={{ color: 'var(--secondary)', marginBottom: '10px' }}>Building Trust, One Door at a Time</h3>
             <p style={pStyle}>
@@ -62,12 +54,12 @@ const AboutPage = () => {
               At Deore Doors, we don’t just sell doors — we help people create beautiful, secure, and lasting spaces.
             </p>
           </div>
-          <div style={imageWrapperStyle}>
+          <div style={imageWrapperStyle} className="about-page-image">
             <img src={shopImage} alt="Deore Door Showroom" style={imgStyle} />
           </div>
         </div>
 
-        <div style={statsContainerStyle}>
+        <div style={statsContainerStyle} className="about-stats-container">
           <div style={statBoxStyle}>
             <h2 style={{color: 'var(--primary)', fontSize: '2.5rem'}}>500+</h2>
             <p style={{fontWeight: 500}}>Happy Customers</p>
@@ -84,7 +76,7 @@ const AboutPage = () => {
 
         <div className="section-padding">
           <h3 style={{ textAlign: 'center', marginBottom: '40px', fontSize: '2rem' }}>Our Core Values</h3>
-          <div style={valuesGridStyle}>
+          <div style={valuesGridStyle} className="about-values-grid">
             <ValueCard icon="⭐" title="Quality First" desc="We never compromise on the materials or methods used in our products." />
             <ValueCard icon="🤝" title="Customer Trust" desc="Building long-term relationships through transparency and reliability." />
             <ValueCard icon="🎨" title="Innovation" desc="Constantly updating our designs to stay ahead of modern interior trends." />
@@ -97,7 +89,7 @@ const AboutPage = () => {
 };
 
 const ValueCard = ({ icon, title, desc }) => (
-  <div style={valueCardStyle}>
+  <div style={valueCardStyle} className="about-value-card">
     <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{icon}</div>
     <h4 style={{ marginBottom: '15px', fontSize: '1.2rem' }}>{title}</h4>
     <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>{desc}</p>
@@ -151,5 +143,79 @@ const valueCardStyle = {
   border: '1px solid #f1f5f9',
   transition: 'transform 0.3s ease'
 };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 992px) {
+      .about-page-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+      
+      .about-page-image {
+        height: 400px !important;
+        position: relative !important;
+        top: 0 !important;
+      }
+      
+      .about-stats-container {
+        padding: 40px 30px !important;
+        gap: 30px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .about-page-grid {
+        gap: 30px !important;
+      }
+      
+      .about-page-image {
+        height: 300px !important;
+      }
+      
+      .about-stats-container {
+        padding: 30px 20px !important;
+        gap: 20px !important;
+      }
+      
+      .about-stats-container h2 {
+        font-size: 2rem !important;
+      }
+      
+      .about-values-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      
+      .about-value-card {
+        padding: 30px 20px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .about-page-image {
+        height: 250px !important;
+        border-radius: 16px !important;
+      }
+      
+      .about-stats-container {
+        padding: 20px 15px !important;
+        border-radius: 20px !important;
+      }
+      
+      .about-stats-container h2 {
+        font-size: 1.75rem !important;
+      }
+      
+      .about-value-card {
+        padding: 25px 15px !important;
+        border-radius: 16px !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default AboutPage;

@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
         </div>
         <div style={bottomStyle}>
-          <p>© 2024 Deore Door And Modular Furniture. All rights reserved.</p>
+          <p>© 2026 Deore Door And Modular Furniture. All rights reserved.</p>
         </div>
       </div>
     </footer>
