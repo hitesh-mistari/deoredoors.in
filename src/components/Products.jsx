@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const products = [
@@ -6,21 +7,21 @@ const Products = () => {
       id: 1,
       name: 'PVC Doors',
       description: 'Waterproof, durable & stylish PVC doors for modern homes and offices.',
-      image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b0ca3ef?q=80&w=2070',
+      image: '/images/door/pvc-door-by-deore-doors.webp',
       icon: '🚪'
     },
     {
       id: 2,
       name: 'Coating Doors',
       description: 'Elegant coating finish doors that enhance the beauty of your interiors.',
-      image: 'https://images.unsplash.com/photo-1513512147376-c29e715f3d5b?q=80&w=2070',
+      image: '/images/door/coating-door.webp',
       icon: '🪵'
     },
     {
       id: 3,
       name: 'Sagwani Doors',
       description: 'Premium Sagwani wood doors for a classic and long-lasting experience.',
-      image: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?q=80&w=2070',
+      image: '/images/door/sagwani-door-by-deore-doors.webp',
       icon: '✨'
     }
   ];
@@ -42,7 +43,7 @@ const Products = () => {
               <div style={cardBodyStyle}>
                 <h3 style={{ marginBottom: '10px' }}>{product.name}</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>{product.description}</p>
-                <a href="#" style={linkStyle}>Learn More →</a>
+                <Link to={`/product/${product.id}`} style={linkStyle}>Learn More →</Link>
               </div>
             </div>
           ))}
@@ -105,5 +106,25 @@ const linkStyle = {
   fontWeight: 600,
   fontSize: '0.9rem',
 };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 768px) {
+      section[id="products"] > div > div[style*="grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      section[id="products"] div[style*="height: 350px"] {
+        height: 250px !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default Products;

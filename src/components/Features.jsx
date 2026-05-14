@@ -22,9 +22,9 @@ const Features = () => {
     },
     {
       id: 4,
-      title: 'After Sales Support',
-      desc: 'Dedicated support even after delivery for complete peace of mind.',
-      icon: '📞'
+      title: 'Same Day Delivery',
+      desc: 'Get your premium doors delivered to your site within 24 hours.',
+      icon: '🚚'
     }
   ];
 
@@ -93,5 +93,43 @@ const dividerStyle = {
   width: '1px',
   background: 'rgba(255,255,255,0.1)',
 };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 992px) {
+      section[id="why-us"] > div > div[style*="flexWrap"] {
+        justify-content: center !important;
+      }
+      
+      section[id="why-us"] div[style*="position: absolute"][style*="right: -15px"] {
+        display: none !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      section[id="why-us"] {
+        padding: 50px 0 !important;
+      }
+      
+      section[id="why-us"] > div > div[style*="flexWrap"] {
+        gap: 25px !important;
+      }
+      
+      section[id="why-us"] div[style*="flex: 1 1 200px"] {
+        flex: 1 1 100% !important;
+        justify-content: flex-start !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      section[id="why-us"] div[style*="maxWidth: 200px"] {
+        max-width: 100% !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default Features;

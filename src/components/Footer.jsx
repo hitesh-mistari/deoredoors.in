@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,16 +15,16 @@ const Footer = () => {
           <div style={footerColStyle}>
             <h4 style={{ marginBottom: '20px' }}>Quick Links</h4>
             <ul style={listStyle}>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/products">Products</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
           <div style={footerColStyle}>
             <h4 style={{ marginBottom: '20px' }}>Contact Info</h4>
             <p style={{ opacity: 0.7, fontSize: '0.9rem', marginBottom: '10px' }}>📍 Nashik, Maharashtra, India</p>
-            <p style={{ opacity: 0.7, fontSize: '0.9rem', marginBottom: '10px' }}>📞 +91 98XXX XXXXX</p>
+            <p style={{ opacity: 0.7, fontSize: '0.9rem', marginBottom: '10px' }}>📞 +91 73501 31608</p>
             <p style={{ opacity: 0.7, fontSize: '0.9rem' }}>📧 info@deoredoors.in</p>
           </div>
         </div>
@@ -68,5 +69,42 @@ const bottomStyle = {
   fontSize: '0.8rem',
   opacity: 0.5,
 };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @media (max-width: 768px) {
+      footer {
+        padding: 60px 0 30px 0 !important;
+      }
+      
+      footer > div > div[style*="marginBottom: 50px"] {
+        gap: 30px !important;
+        margin-bottom: 40px !important;
+      }
+      
+      footer > div > div > div[style*="flex: 1 1 250px"] {
+        flex: 1 1 100% !important;
+        text-align: center;
+      }
+      
+      footer ul {
+        align-items: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      footer {
+        padding: 50px 0 20px 0 !important;
+      }
+      
+      footer h3, footer h4 {
+        font-size: 1.2rem;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default Footer;

@@ -12,7 +12,7 @@
   --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
   --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
   --transition: all 0.3s ease;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 html {
@@ -30,11 +30,22 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   line-height: 1.2;
+}
+
+h2 {
+  font-weight: 600;
 }
 
 a {
@@ -134,4 +145,117 @@ button {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.shortcut-btn:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.shortcut-btn:hover span {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .section-title h2 {
+    font-size: 2rem;
+  }
+  
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  /* Ensure cards don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .section-title h2 {
+    font-size: 1.75rem;
+  }
+  
+  .section-padding {
+    padding: 50px 0;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Improve touch targets for mobile */
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section-title h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section-title span {
+    font-size: 0.8rem;
+  }
+  
+  .section-padding {
+    padding: 40px 0;
+  }
+  
+  /* Stack buttons vertically on very small screens */
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Prevent horizontal scroll on all screen sizes */
+* {
+  max-width: 100%;
+}
+
+/* Allow specific elements to exceed container */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
 }
