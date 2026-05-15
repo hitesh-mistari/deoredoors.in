@@ -26,52 +26,52 @@ const WhyTrustUs = () => {
   ];
 
   return (
-    <section style={sectionStyle}>
-      <div className="container" style={containerStyle}>
-        <div style={contentWrapperStyle}>
+    <section className="why-trust-section">
+      <div className="container why-trust-container">
+        <div className="why-trust-wrapper">
           {/* Left Side - Image */}
-          <div style={imageContainerStyle}>
+          <div className="why-trust-image-container">
             <img 
               src="/images/door/why-trust-deore-doors.png"
               alt="Why Trust Deore Doors" 
-              style={imageStyle}
+              className="why-trust-image"
             />
           </div>
 
           {/* Right Side - Content */}
-          <div style={contentStyle}>
-            <div style={headerStyle}>
-              <span style={subtitleStyle}>WHY TRUST US</span>
-              <h2 style={titleStyle}>
-                Why Trust <span style={brandStyle}>Deore Doors?</span>
+          <div className="why-trust-content">
+            <div className="why-trust-header">
+              <span className="why-trust-subtitle">WHY TRUST US</span>
+              <h2 className="why-trust-title">
+                Why Trust <span className="why-trust-brand">Deore Doors?</span>
               </h2>
             </div>
 
-            <div style={featuresGridStyle}>
-              <div style={dividerStyle}></div>
+            <div className="why-trust-features-grid">
+              <div className="why-trust-divider"></div>
               {features.map((feature, index) => (
                 <React.Fragment key={index}>
-                  <div style={featureCardStyle} className="why-trust-feature">
-                    <div style={iconContainerStyle}>
+                  <div className="why-trust-feature-item">
+                    <div className="why-trust-icon-box">
                       {feature.icon}
                     </div>
-                    <div style={featureContentStyle}>
-                      <h3 style={featureTitleStyle}>{feature.title}</h3>
-                      <p style={featureDescStyle}>{feature.description}</p>
+                    <div className="why-trust-feature-content">
+                      <h3 className="why-trust-feature-title">{feature.title}</h3>
+                      <p className="why-trust-feature-desc">{feature.description}</p>
                     </div>
                   </div>
-                  <div style={dividerStyle}></div>
+                  <div className="why-trust-divider"></div>
                 </React.Fragment>
               ))}
             </div>
 
-            <div style={ctaContainerStyle}>
-              <a href="tel:+917350131608" style={callButtonStyle}>
-                <span style={buttonIconStyle}><Phone size={20} /></span>
+            <div className="why-trust-cta">
+              <a href="tel:+917350131608" className="why-trust-btn-call">
+                <span className="why-trust-btn-icon"><Phone size={20} /></span>
                 Call Us Now
               </a>
-              <a href="/contact" style={visitButtonStyle}>
-                <span style={buttonIconStyle}><Store size={20} /></span>
+              <a href="/contact" className="why-trust-btn-visit">
+                <span className="why-trust-btn-icon"><Store size={20} /></span>
                 Visit Showroom
               </a>
             </div>
@@ -82,214 +82,229 @@ const WhyTrustUs = () => {
   );
 };
 
-const sectionStyle = {
-  padding: '80px 0',
-  background: '#ffffff',
-  position: 'relative',
-  overflow: 'hidden',
-};
-
-const containerStyle = {
-  maxWidth: '1200px',
-  margin: '0 auto',
-  padding: '0 20px',
-};
-
-const contentWrapperStyle = {
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  gap: '60px',
-  alignItems: 'center',
-};
-
-const imageContainerStyle = {
-  position: 'relative',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-};
-
-const imageStyle = {
-  width: '100%',
-  maxWidth: '500px',
-  height: 'auto',
-  borderRadius: '20px',
-};
-
-const contentStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '20px',
-};
-
-const headerStyle = {
-  marginBottom: '10px',
-};
-
-const subtitleStyle = {
-  fontSize: '0.9rem',
-  fontWeight: 600,
-  color: '#d97706',
-  letterSpacing: '2px',
-  marginBottom: '10px',
-  display: 'block',
-};
-
-const titleStyle = {
-  fontSize: '2.5rem',
-  fontWeight: 700,
-  color: '#1a202c',
-  lineHeight: '1.2',
-  marginBottom: '0',
-};
-
-const brandStyle = {
-  color: '#d97706',
-  display: 'block',
-};
-
-const featuresGridStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-};
-
-const dividerStyle = {
-  height: '1px',
-  backgroundColor: '#e2e8f0',
-  width: '100%',
-};
-
-const featureCardStyle = {
-  display: 'flex',
-  gap: '20px',
-  padding: '20px 0',
-  background: 'transparent',
-  alignItems: 'center',
-};
-
-const iconContainerStyle = {
-  width: '50px',
-  height: '50px',
-  borderRadius: '50%',
-  border: '2px solid #fef3c7',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexShrink: 0,
-};
-
-const featureContentStyle = {
-  flex: 1,
-};
-
-const featureTitleStyle = {
-  fontSize: '1.1rem',
-  fontWeight: 600,
-  color: '#1a202c',
-  marginBottom: '5px',
-};
-
-const featureDescStyle = {
-  fontSize: '0.9rem',
-  color: '#718096',
-  lineHeight: '1.6',
-  margin: 0,
-};
-
-const ctaContainerStyle = {
-  display: 'flex',
-  gap: '15px',
-  marginTop: '20px',
-};
-
-const callButtonStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '10px',
-  padding: '15px 30px',
-  background: '#d97706',
-  color: 'white',
-  borderRadius: '8px',
-  textDecoration: 'none',
-  fontWeight: 600,
-  fontSize: '1rem',
-  transition: 'all 0.3s ease',
-  boxShadow: '0 4px 15px rgba(217, 119, 6, 0.3)',
-  border: 'none',
-  cursor: 'pointer',
-};
-
-const visitButtonStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '10px',
-  padding: '15px 30px',
-  background: 'white',
-  color: '#d97706',
-  borderRadius: '8px',
-  textDecoration: 'none',
-  fontWeight: 600,
-  fontSize: '1rem',
-  transition: 'all 0.3s ease',
-  border: '2px solid #d97706',
-  cursor: 'pointer',
-};
-
-const buttonIconStyle = {
-  display: 'flex',
-  alignItems: 'center',
-};
-
 // Add responsive styles and hover effects
 if (typeof document !== 'undefined') {
-  const existingStyle = document.getElementById('why-trust-us-styles');
+  const existingStyle = document.getElementById('why-trust-us-styles-v2');
   if (existingStyle) existingStyle.remove();
 
   const style = document.createElement('style');
-  style.id = 'why-trust-us-styles';
+  style.id = 'why-trust-us-styles-v2';
   style.textContent = `
-    a[href="tel:+917350131608"]:hover {
-      background: #b45309 !important;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4) !important;
+    .why-trust-section {
+      padding: 80px 0;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
     }
     
-    a[href="/contact"]:hover {
-      background: #d97706 !important;
-      color: white !important;
+    .why-trust-container {
+      maxWidth: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .why-trust-wrapper {
+      display: grid;
+      gridTemplateColumns: 1fr 1fr;
+      gap: 60px;
+      alignItems: center;
+    }
+    
+    .why-trust-image-container {
+      position: relative;
+      display: flex;
+      justifyContent: center;
+      alignItems: center;
+    }
+    
+    .why-trust-image {
+      width: 100%;
+      maxWidth: 500px;
+      height: auto;
+      borderRadius: 20px;
+    }
+    
+    .why-trust-content {
+      display: flex;
+      flexDirection: column;
+      gap: 20px;
+    }
+    
+    .why-trust-subtitle {
+      fontSize: 0.9rem;
+      fontWeight: 600;
+      color: #d97706;
+      letterSpacing: 2px;
+      marginBottom: 10px;
+      display: block;
+    }
+    
+    .why-trust-title {
+      fontSize: 2.8rem;
+      fontWeight: 700;
+      color: #1a202c;
+      lineHeight: 1.1;
+      marginBottom: 0;
+    }
+    
+    .why-trust-brand {
+      color: #d97706;
+    }
+    
+    .why-trust-features-grid {
+      display: flex;
+      flexDirection: column;
+    }
+    
+    .why-trust-divider {
+      height: 1px;
+      backgroundColor: #e2e8f0;
+      width: 100%;
+    }
+    
+    .why-trust-feature-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      background: transparent;
+      alignItems: center;
+    }
+    
+    .why-trust-icon-box {
+      width: 50px;
+      height: 50px;
+      borderRadius: 50%;
+      border: 2px solid #fef3c7;
+      display: flex;
+      alignItems: center;
+      justifyContent: center;
+      flexShrink: 0;
+    }
+    
+    .why-trust-feature-title {
+      fontSize: 1.1rem;
+      fontWeight: 600;
+      color: #1a202c;
+      marginBottom: 5px;
+    }
+    
+    .why-trust-feature-desc {
+      fontSize: 0.9rem;
+      color: #718096;
+      lineHeight: 1.5;
+      margin: 0;
+    }
+    
+    .why-trust-cta {
+      display: flex;
+      gap: 15px;
+      marginTop: 10px;
+    }
+    
+    .why-trust-btn-call {
+      display: flex;
+      alignItems: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: #d97706;
+      color: white;
+      borderRadius: 8px;
+      textDecoration: none;
+      fontWeight: 600;
+      fontSize: 1rem;
+      transition: all 0.3s ease;
+      boxShadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+    }
+    
+    .why-trust-btn-visit {
+      display: flex;
+      alignItems: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: white;
+      color: #d97706;
+      borderRadius: 8px;
+      textDecoration: none;
+      fontWeight: 600;
+      fontSize: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid #d97706;
+    }
+    
+    .why-trust-btn-icon {
+      display: flex;
+      alignItems: center;
+    }
+    
+    .why-trust-btn-call:hover {
+      background: #b45309;
+      transform: translateY(-2px);
+      boxShadow: 0 6px 15px rgba(217, 119, 6, 0.3);
+    }
+    
+    .why-trust-btn-visit:hover {
+      background: #fffbeb;
       transform: translateY(-2px);
     }
     
     /* Responsive styles */
+    @media (max-width: 1024px) {
+      .why-trust-title {
+        fontSize: 2.4rem;
+      }
+      .why-trust-wrapper {
+        gap: 40px;
+      }
+    }
+    
     @media (max-width: 968px) {
-      section[style*="padding: 80px 0"] {
-        padding: 60px 0 !important;
+      .why-trust-section {
+        padding: 60px 0;
       }
-      
-      div[style*="gridTemplateColumns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: 40px !important;
+      .why-trust-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
       }
-      
-      h2[style*="fontSize: 2.5rem"] {
-        font-size: 2rem !important;
+      .why-trust-image-container {
+        order: 2;
+      }
+      .why-trust-content {
+        order: 1;
+        align-items: center;
+      }
+      .why-trust-feature-item {
+        text-align: left;
+      }
+      .why-trust-cta {
+        justify-content: center;
+      }
+      .why-trust-image {
+        max-width: 400px;
       }
     }
     
     @media (max-width: 640px) {
-      h2[style*="fontSize: 2.5rem"],
-      h2[style*="fontSize: 2rem"] {
-        font-size: 1.75rem !important;
+      .why-trust-title {
+        font-size: 1.85rem;
       }
-      
-      div[style*="display: flex"][style*="gap: 15px"][style*="marginTop: 20px"] {
-        flex-direction: column !important;
+      .why-trust-cta {
+        flex-direction: column;
+        width: 100%;
       }
-      
-      a[href="tel:+917350131608"],
-      a[href="/contact"] {
+      .why-trust-btn-call, .why-trust-btn-visit {
         width: 100%;
         justify-content: center;
+      }
+      .why-trust-feature-item {
+        gap: 15px;
+      }
+      .why-trust-icon-box {
+        width: 40px;
+        height: 40px;
+      }
+      .why-trust-image {
+        max-width: 100%;
       }
     }
   `;
