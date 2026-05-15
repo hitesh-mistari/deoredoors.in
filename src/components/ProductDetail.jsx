@@ -46,7 +46,7 @@ const ProductDetail = () => {
           {/* Right: Info */}
           <div style={infoStyle}>
             <span style={{ color: 'var(--primary)', fontWeight: 600 }}>{product.name}</span>
-            <h1 style={{ fontSize: '2.5rem', margin: '10px 0 20px' }}>{product.name}</h1>
+            <h1 style={{ fontSize: '2.5rem', margin: '10px 0 20px', fontWeight: 600 }}>{product.name}</h1>
             <div style={{ height: '2px', width: '50px', background: '#ddd', marginBottom: '20px' }}></div>
             <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '30px' }}>
               {product.fullDescription}
