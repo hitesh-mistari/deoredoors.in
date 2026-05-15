@@ -1,31 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import productsData from '../data/products.json';
 
 const Products = () => {
-  const products = [
-    {
-      id: 1,
-      name: 'PVC Doors',
-      description: 'Waterproof, durable & stylish PVC doors for modern homes and offices.',
-      image: '/images/door/pvc-door-by-deore-doors.webp',
-      icon: '🚪'
-    },
-    {
-      id: 2,
-      name: 'Coating Doors',
-      description: 'Elegant coating finish doors that enhance the beauty of your interiors.',
-      image: '/images/door/coating-door.webp',
-      icon: '🪵'
-    },
-    {
-      id: 3,
-      name: 'Sagwani Doors',
-      description: 'Premium Sagwani wood doors for a classic and long-lasting experience.',
-      image: '/images/door/sagwani-door-by-deore-doors.webp',
-      icon: '✨'
-    }
-  ];
-
   return (
     <section id="products" className="section-padding">
       <div className="container">
@@ -34,7 +11,7 @@ const Products = () => {
           <h2>Crafted for Style. Built for Durability.</h2>
         </div>
         <div style={gridStyle}>
-          {products.map(product => (
+          {productsData.map(product => (
             <div key={product.id} style={cardStyle}>
               <div style={imageContainerStyle}>
                 <img src={product.image} alt={product.name} style={imageStyle} />
@@ -42,7 +19,7 @@ const Products = () => {
               </div>
               <div style={cardBodyStyle}>
                 <h3 style={{ marginBottom: '10px' }}>{product.name}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>{product.description}</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>{product.shortDescription}</p>
                 <Link to={`/product/${product.id}`} style={linkStyle}>Learn More →</Link>
               </div>
             </div>

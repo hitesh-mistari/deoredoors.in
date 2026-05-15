@@ -1,91 +1,80 @@
 import React, { useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import productsData from '../data/products.json';
 
 const ProductDetail = () => {
+  const { productId } = useParams();
+  const navigate = useNavigate();
+  const product = productsData.find(p => p.id === productId);
+
   const [activeImage, setActiveImage] = useState(0);
-  
-  const images = [
-    'https://images.unsplash.com/photo-1506377247377-2a5b3b0ca3ef?q=80&w=2070',
-    'https://images.unsplash.com/photo-1513512147376-c29e715f3d5b?q=80&w=2070',
-    'https://images.unsplash.com/photo-1525498128493-380d1990a112?q=80&w=2070',
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069',
-    'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2070'
-  ];
 
-  const finishes = [
-    { name: 'Cream', color: '#f5f5dc' },
-    { name: 'Light Oak', color: '#d2b48c' },
-    { name: 'Walnut', color: '#6b4423' },
-    { name: 'Dark Wenge', color: '#2a1b0a' },
-    { name: 'Slate Grey', color: '#708090' },
-    { name: 'Charcoal', color: '#36454f' }
-  ];
-
-  const specs = [
-    { label: 'Material', value: 'High Quality PVC' },
-    { label: 'Thickness', value: '25mm / 30mm' },
-    { label: 'Door Frame', value: 'PVC / WPC Frame' },
-    { label: 'Water Resistance', value: '100% Waterproof' },
-    { label: 'Termite Resistance', value: 'Yes' },
-    { label: 'Suitable For', value: 'Bathroom, Kitchen, Balcony, Interior' },
-    { label: 'Warranty', value: 'Up to 10 Years*' }
-  ];
+  // If product not found, redirect to products page
+  if (!product) {
+    navigate('/products');
+    return null;
+  }
 
   return (
     <div className="product-page" style={{ paddingTop: '100px' }}>
       <div className="container">
         {/* Main Product Info */}
-        <div style={mainGridStyle}>
+        <div style={mainGridStyle} className="product-detail-grid">
           {/* Left: Gallery */}
           <div style={galleryStyle}>
             <div style={mainImageWrapperStyle}>
-              <img src={images[activeImage]} alt="Product" style={mainImageStyle} />
+              <img src={product.images[activeImage]} alt={product.name} style={mainImageStyle} referrerPolicy="no-referrer" />
             </div>
-            <div style={thumbnailWrapperStyle}>
-              <button style={navBtnStyle}>‹</button>
-              <div style={thumbnailListStyle}>
-                {images.map((img, idx) => (
-                  <img 
-                    key={idx} 
-                    src={img} 
-                    alt={`Thumb ${idx}`} 
-                    style={{...thumbStyle, border: activeImage === idx ? '2px solid var(--primary)' : '1px solid #ddd'}}
-                    onClick={() => setActiveImage(idx)}
-                  />
-                ))}
-              </div>
-              <button style={navBtnStyle}>›</button>
+            <div style={thumbnailWrapperStyle} className="product-thumbnails">
+              {product.images.length > 1 && (
+                <div style={thumbnailListStyle}>
+                  {product.images.map((img, idx) => (
+                    <img 
+                      key={idx} 
+                      src={img} 
+                      alt={`${product.name} ${idx + 1}`} 
+                      style={{...thumbStyle, border: activeImage === idx ? '2px solid var(--primary)' : '1px solid #ddd'}}
+                      onClick={() => setActiveImage(idx)}
+                      referrerPolicy="no-referrer"
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
           {/* Right: Info */}
           <div style={infoStyle}>
-            <span style={{ color: 'var(--primary)', fontWeight: 600 }}>PVC Doors</span>
-            <h1 style={{ fontSize: '2.5rem', margin: '10px 0 20px' }}>Premium PVC Doors</h1>
+            <span style={{ color: 'var(--primary)', fontWeight: 600 }}>{product.name}</span>
+            <h1 style={{ fontSize: '2.5rem', margin: '10px 0 20px' }}>{product.name}</h1>
             <div style={{ height: '2px', width: '50px', background: '#ddd', marginBottom: '20px' }}></div>
             <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '30px' }}>
-              Our PVC doors are waterproof, durable, and stylish – perfect for modern homes and offices. Designed to resist moisture, termites, and daily wear, they offer long-lasting performance with minimal maintenance.
+              {product.fullDescription}
             </p>
 
-            <div style={featureIconsStyle}>
-              <div style={iconItemStyle}><span>💧</span><p>Waterproof</p></div>
-              <div style={iconItemStyle}><span>🐜</span><p>Termite Resistant</p></div>
-              <div style={iconItemStyle}><span>🛡️</span><p>Durable & Long Lasting</p></div>
-              <div style={iconItemStyle}><span>✨</span><p>Easy to Maintain</p></div>
+            <div style={featureIconsStyle} className="product-feature-icons">
+              {product.features.slice(0, 4).map((feature, idx) => (
+                <div key={idx} style={iconItemStyle}>
+                  <span>{feature.icon}</span>
+                  <p>{feature.title}</p>
+                </div>
+              ))}
             </div>
 
             <div style={{ margin: '30px 0' }}>
               <p style={{ fontWeight: 600, marginBottom: '15px' }}>Available Finishes</p>
-              <div style={swatchGroupStyle}>
-                {finishes.map(f => (
+              <div style={swatchGroupStyle} className="product-swatches">
+                {product.finishes.map(f => (
                   <div key={f.name} style={{...swatchStyle, background: f.color}} title={f.name}></div>
                 ))}
-                <button style={moreBtnStyle}>+ More</button>
               </div>
             </div>
 
-            <div style={btnGroupStyle}>
-              <button className="btn btn-primary">Get a Quote →</button>
-              <button className="btn btn-outline" style={{ color: 'var(--secondary)', borderColor: '#ddd' }}>Download Brochure 📥</button>
+            <div style={btnGroupStyle} className="product-action-btns">
+              <Link to="/contact" className="btn btn-primary">Get a Quote →</Link>
+              <button className="btn btn-outline" style={{ color: 'var(--secondary)', borderColor: '#ddd' }}>
+                Call Now 📞
+              </button>
             </div>
           </div>
         </div>
@@ -93,31 +82,25 @@ const ProductDetail = () => {
         {/* Key Features */}
         <div className="section-padding">
           <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Key Features</h2>
-          <div style={featuresGridStyle}>
-            {[
-              { icon: '💧', title: '100% Waterproof', desc: 'Ideal for bathrooms, kitchens, and all weather conditions.' },
-              { icon: '🛡️', title: 'Termite & Pest Proof', desc: 'Built to resist termites and pests for a worry-free life.' },
-              { icon: '🏗️', title: 'High Durability', desc: 'Strong and reliable structure for long-term performance.' },
-              { icon: '🧹', title: 'Low Maintenance', desc: 'Easy to clean and requires minimal maintenance.' },
-              { icon: '🎨', title: 'Stylish Designs', desc: 'Modern and elegant finishes to match every interior.' }
-            ].map(f => (
-              <div key={f.title} style={featureCardStyle}>
+          <div style={featuresGridStyle} className="product-features-grid">
+            {product.features.map((f, idx) => (
+              <div key={idx} style={featureCardStyle} className="product-feature-card">
                 <div style={featureIconStyle}>{f.icon}</div>
                 <h4 style={{ margin: '10px 0' }}>{f.title}</h4>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{f.desc}</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{f.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Technical Specs & Why Choose Us */}
-        <div style={bottomGridStyle} className="section-padding">
+        <div style={bottomGridStyle} className="section-padding product-bottom-grid">
           <div style={{ flex: 1 }}>
             <h3 style={{ marginBottom: '20px' }}>Technical Specifications</h3>
             <table style={tableStyle}>
               <tbody>
-                {specs.map(s => (
-                  <tr key={s.label}>
+                {product.specifications.map((s, idx) => (
+                  <tr key={idx}>
                     <td style={tdStyle}><strong>{s.label}</strong></td>
                     <td style={tdStyle}>{s.value}</td>
                   </tr>
@@ -126,28 +109,28 @@ const ProductDetail = () => {
             </table>
             <p style={{ fontSize: '0.7rem', opacity: 0.5, marginTop: '10px' }}>*Terms & Conditions Apply</p>
           </div>
-          <div style={whyChooseBoxStyle}>
-            <h3 style={{ marginBottom: '20px', color: 'white' }}>Why Choose Our PVC Doors?</h3>
+          <div style={whyChooseBoxStyle} className="product-why-choose">
+            <h3 style={{ marginBottom: '20px', color: 'white' }}>Why Choose Our {product.name}?</h3>
             <ul style={checkListStyle}>
-              <li><span>✓</span> Advanced technology and premium quality material</li>
-              <li><span>✓</span> Perfect finish with strong and elegant look</li>
-              <li><span>✓</span> Wide range of designs and colors</li>
-              <li><span>✓</span> Custom sizes available as per requirement</li>
-              <li><span>✓</span> Trusted by hundreds of happy customers in Nashik</li>
+              {product.whyChoose.map((item, idx) => (
+                <li key={idx}><span>✓</span> {item}</li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* CTA Banner */}
-        <div style={ctaBannerStyle}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div style={ctaBannerStyle} className="product-cta-banner">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flex: 1 }}>
             <div style={bannerIconStyle}>🎧</div>
             <div>
               <h3 style={{ margin: 0 }}>Need Help Choosing the Right Door?</h3>
               <p style={{ margin: 0, opacity: 0.8 }}>Our experts are here to help you find the perfect door for your space.</p>
             </div>
           </div>
-          <button className="btn btn-primary" style={{ background: '#c27829', padding: '12px 30px' }}>Talk to Expert →</button>
+          <Link to="/contact" className="btn btn-primary" style={{ background: '#c27829', padding: '12px 30px' }}>
+            Talk to Expert →
+          </Link>
         </div>
       </div>
     </div>
@@ -190,6 +173,7 @@ const thumbnailListStyle = {
   display: 'flex',
   gap: '10px',
   overflowX: 'auto',
+  flex: 1,
 };
 
 const thumbStyle = {
@@ -198,15 +182,7 @@ const thumbStyle = {
   borderRadius: '10px',
   objectFit: 'cover',
   cursor: 'pointer',
-};
-
-const navBtnStyle = {
-  background: '#333',
-  color: 'white',
-  width: '30px',
-  height: '30px',
-  borderRadius: '50%',
-  fontSize: '1.2rem',
+  flexShrink: 0,
 };
 
 const infoStyle = {
@@ -229,6 +205,7 @@ const swatchGroupStyle = {
   display: 'flex',
   alignItems: 'center',
   gap: '10px',
+  flexWrap: 'wrap',
 };
 
 const swatchStyle = {
@@ -236,12 +213,8 @@ const swatchStyle = {
   height: '30px',
   borderRadius: '50%',
   border: '1px solid #ddd',
-};
-
-const moreBtnStyle = {
-  fontSize: '0.8rem',
-  background: 'none',
-  color: '#888',
+  cursor: 'pointer',
+  flexShrink: 0,
 };
 
 const btnGroupStyle = {
@@ -322,5 +295,94 @@ const bannerIconStyle = {
   justifyContent: 'center',
   fontSize: '1.5rem',
 };
+
+// Add responsive styles
+if (typeof document !== 'undefined') {
+  const existingStyle = document.getElementById('product-detail-responsive');
+  if (existingStyle) existingStyle.remove();
+
+  const style = document.createElement('style');
+  style.id = 'product-detail-responsive';
+  style.textContent = `
+    @media (max-width: 992px) {
+      .product-detail-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+      
+      .product-bottom-grid {
+        flex-direction: column !important;
+      }
+      
+      .product-why-choose {
+        min-width: 100% !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .product-detail-grid {
+        gap: 30px !important;
+      }
+      
+      .product-feature-icons {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .product-features-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+      }
+      
+      .product-action-btns {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+      
+      .product-action-btns a,
+      .product-action-btns button {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      
+      .product-cta-banner {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 20px !important;
+      }
+      
+      .product-cta-banner > div:first-child {
+        flex-direction: column !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .product-thumbnails {
+        display: none !important;
+      }
+      
+      .product-feature-icons {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+      
+      .product-features-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .product-swatches {
+        flex-wrap: wrap !important;
+      }
+      
+      .product-cta-banner h3 {
+        font-size: 1.2rem !important;
+      }
+      
+      .product-cta-banner p {
+        font-size: 0.85rem !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 export default ProductDetail;

@@ -1,0 +1,200 @@
+[
+  {
+    "id": "pvc-doors",
+    "name": "PVC Doors",
+    "shortDescription": "Waterproof, durable & stylish PVC doors for modern homes and offices.",
+    "fullDescription": "Our PVC doors are waterproof, durable, and stylish – perfect for modern homes and offices. Designed to resist moisture, termites, and daily wear, they offer long-lasting performance with minimal maintenance.",
+    "image": "/images/door/pvc-door-by-deore-doors.webp",
+    "icon": "🚪",
+    "images": [
+      "/images/door/pvc-door-by-deore-doors.webp",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHnljjU6d013nBqApknhVU7zBOginKhfT-ZavyQEO1ABAYNsNVJROsa3sbriMDfgPDr7nkKJa5Gev4Ho1XB8G2sf5GjuHFkGuVfAWOdg-Gsg6FQIdUND1yzG1snW-3x5CzneDdwnTKoTL7G=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGsvszrXuKWxzxjlqWCB6nVVUCKcihSlChGWhIxSGw-F-WRUcl-D8Jmca25dWCF2Wl5TncXRmX_xfUgVJM9JIo25XLNm4ymyX-XLnnygz19xhW5MvcieLcaglfUDS3yFl-lRMBi=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFrAtay9IdGa5xsp55DHN1-hiRH7kMZS68qqiosvEZREF7QuVsTajWOgsULRgh0HKNary-DGy5NT7zMJJTbcqKZ7dYS-goJsphouqHw4CmwCSnKaoX-gFe0RVPDkTVyiMacI2cj=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYOz1sF5G2-mNn48eqarttRMTxAR_52dQPp_LWNyyIlnk18Z763vYoECqHg3u_AIIvO_pbj00LPF-04-DRFBv3EB0drJJd-h89JSNI9DgBry2HfigezOpbsxoZodBzC2dAfQ7SMoWdDCEB=w1920-h1080-k-no"
+    ],
+    "features": [
+      {
+        "icon": "💧",
+        "title": "100% Waterproof",
+        "description": "Ideal for bathrooms, kitchens, and all weather conditions."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Termite & Pest Proof",
+        "description": "Built to resist termites and pests for a worry-free life."
+      },
+      {
+        "icon": "🏗️",
+        "title": "High Durability",
+        "description": "Strong and reliable structure for long-term performance."
+      },
+      {
+        "icon": "🧹",
+        "title": "Low Maintenance",
+        "description": "Easy to clean and requires minimal maintenance."
+      },
+      {
+        "icon": "🎨",
+        "title": "Stylish Designs",
+        "description": "Modern and elegant finishes to match every interior."
+      }
+    ],
+    "specifications": [
+      { "label": "Material", "value": "High Quality PVC" },
+      { "label": "Thickness", "value": "25mm / 30mm" },
+      { "label": "Door Frame", "value": "PVC / WPC Frame" },
+      { "label": "Water Resistance", "value": "100% Waterproof" },
+      { "label": "Termite Resistance", "value": "Yes" },
+      { "label": "Suitable For", "value": "Bathroom, Kitchen, Balcony, Interior" },
+      { "label": "Warranty", "value": "Up to 10 Years*" }
+    ],
+    "finishes": [
+      { "name": "Cream", "color": "#f5f5dc" },
+      { "name": "Light Oak", "color": "#d2b48c" },
+      { "name": "Walnut", "color": "#6b4423" },
+      { "name": "Dark Wenge", "color": "#2a1b0a" },
+      { "name": "Slate Grey", "color": "#708090" },
+      { "name": "Charcoal", "color": "#36454f" }
+    ],
+    "whyChoose": [
+      "Advanced technology and premium quality material",
+      "Perfect finish with strong and elegant look",
+      "Wide range of designs and colors",
+      "Custom sizes available as per requirement",
+      "Trusted by hundreds of happy customers in Nashik"
+    ]
+  },
+  {
+    "id": "coating-doors",
+    "name": "Coating Doors",
+    "shortDescription": "Elegant coating finish doors that enhance the beauty of your interiors.",
+    "fullDescription": "Our coating doors feature elegant finishes that enhance the beauty of your interiors. With premium coating technology, these doors offer durability, style, and a sophisticated look for modern homes.",
+    "image": "/images/door/coating-door.webp",
+    "icon": "🪵",
+    "images": [
+      "/images/door/coating-door.webp",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFJJADlzzKX9eCFb4_E5GqflcnrteI3VoZeebQiIH5DyFpUQCA2bg0lHzPqE4ZrWRYbyXlBthtiM67WvyDR8RUaSS-Ur5HkshGQ1lz2X1Tg9ts2YpEDiDa6lBCfGz7eBUPlUHX_8zX4yHA=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHlXwWIQADF133_LWrRCGFwl3KicdXBILB039GH3Sc3ttpac6lM5G-WBJHT4MP2qWZgqTO4d6WtL5nQATIj3UkDRD8uHU_jti3bVrYHwzj4uiOsKPdkA4L7MQOhc0y2K5Sm38FJ9v5KRayE=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFToT_DIkVKx9AFJjTkzQ87LZdkc-cYWWXFnjizMNaQIlgNJiHtWg1JBSxeHd1nekwQCfXoEZhxWHdyq3UY3mEqj5Hw88bMu_DWz2QaXXo1-yFC-jqfLSgQIy8oEGksuDcD3Df-AZVlsVqZ=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH9SsYgV7vTKNXvRuOzDiyzF-JtfV8-vn85RaV3PclCAH5pj_9a7Gv2vAUJoaxEaIUNWIZC0HyFe3ql7cyZNYlZCk0xyOGJu2hueljBpY_5NKQwSN2JE_BfLi0BvNhyewt_rOa1zJb2m-s=w1920-h1080-k-no"
+    ],
+    "features": [
+      {
+        "icon": "✨",
+        "title": "Premium Coating",
+        "description": "High-quality coating finish for a luxurious appearance."
+      },
+      {
+        "icon": "🎨",
+        "title": "Elegant Designs",
+        "description": "Beautiful patterns and textures to match your interior."
+      },
+      {
+        "icon": "💪",
+        "title": "Strong & Durable",
+        "description": "Built to last with superior strength and durability."
+      },
+      {
+        "icon": "🌟",
+        "title": "Scratch Resistant",
+        "description": "Resistant to scratches and daily wear and tear."
+      },
+      {
+        "icon": "🏠",
+        "title": "Versatile Use",
+        "description": "Perfect for bedrooms, living rooms, and offices."
+      }
+    ],
+    "specifications": [
+      { "label": "Material", "value": "Engineered Wood with Coating" },
+      { "label": "Thickness", "value": "30mm / 35mm" },
+      { "label": "Door Frame", "value": "Wooden Frame" },
+      { "label": "Finish Type", "value": "Premium Coating" },
+      { "label": "Scratch Resistance", "value": "Yes" },
+      { "label": "Suitable For", "value": "Bedroom, Living Room, Office, Interior" },
+      { "label": "Warranty", "value": "Up to 5 Years*" }
+    ],
+    "finishes": [
+      { "name": "Natural Wood", "color": "#deb887" },
+      { "name": "Mahogany", "color": "#c04000" },
+      { "name": "Teak", "color": "#b8860b" },
+      { "name": "Rosewood", "color": "#65000b" },
+      { "name": "White Oak", "color": "#f5f5dc" },
+      { "name": "Dark Walnut", "color": "#5c4033" }
+    ],
+    "whyChoose": [
+      "Premium coating technology for lasting beauty",
+      "Wide variety of elegant designs and patterns",
+      "Excellent durability and scratch resistance",
+      "Custom designs available as per your preference",
+      "Affordable pricing with premium quality"
+    ]
+  },
+  {
+    "id": "sagwani-doors",
+    "name": "Sagwani Doors",
+    "shortDescription": "Premium Sagwani wood doors for a classic and long-lasting experience.",
+    "fullDescription": "Traditional high-quality Sagwani wood doors offer a classic look with exceptional durability. These doors are crafted from premium Sagwani wood, known for its strength and timeless appeal.",
+    "image": "/images/door/sagwani-door-by-deore-doors.webp",
+    "icon": "✨",
+    "images": [
+      "/images/door/sagwani-door-by-deore-doors.webp",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE56nD2k1k6cbVNeOwQND4UvMhEDTUCC_zmDGlH-_CR0AV4kCf8y2Z_Ajl5VWi8BmPuWw1aACSODyrfchHOIBECpdtyoEGWSQhDUpVoBRkr35IiZ34eP75vVGchEQxpxLkUxzD8=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHqb5RMks-eB2crVmP-LzqrPw41rplj39Cf85faS4OkMld0SmTcEqr1PjItVfPDljv-VZ73jSNGlYS2_Oo-fxUaZejhuMkShp3DVnLD2gN4k2mUMh4esxOHfmfSkUogpcdtdZ1SXLPHshI=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEPWhxfQfpEEm5E4qcR1G5hI43ruYpyjjkCwniDmjz7EdIhQSew6UMaREV2G1lWiGkUpFlH_YIJ1jisxpgMo0ohHplQqLIENwAbnrArHyiRaCzkG7hNba78lQHreK1eL-AyCFYc=w1920-h1080-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGYuSBoAc_AX1cJNJzMwi1Z43DDt3BdK-t8spOgpOtj8SjSv6IQ7abN4CqjJkNy5FGcVPsjfqn_WRE_q7Hq4duO83qobYAMEEfIPWfE8DYpUZjtVEhKZtx9uf-ifV4K-d1jthNyktBuHHZD=w1920-h1080-k-no"
+    ],
+    "features": [
+      {
+        "icon": "🌳",
+        "title": "Premium Sagwani Wood",
+        "description": "Made from high-quality Sagwani wood for superior strength."
+      },
+      {
+        "icon": "⏳",
+        "title": "Long-Lasting",
+        "description": "Exceptional durability that stands the test of time."
+      },
+      {
+        "icon": "🎭",
+        "title": "Classic Appeal",
+        "description": "Timeless design that adds elegance to any space."
+      },
+      {
+        "icon": "🔨",
+        "title": "Expert Craftsmanship",
+        "description": "Handcrafted with precision and attention to detail."
+      },
+      {
+        "icon": "🏛️",
+        "title": "Traditional Look",
+        "description": "Perfect for traditional and contemporary interiors."
+      }
+    ],
+    "specifications": [
+      { "label": "Material", "value": "Premium Sagwani Wood" },
+      { "label": "Thickness", "value": "35mm / 40mm" },
+      { "label": "Door Frame", "value": "Solid Wood Frame" },
+      { "label": "Finish Type", "value": "Natural Wood / Polished" },
+      { "label": "Termite Treatment", "value": "Yes" },
+      { "label": "Suitable For", "value": "Main Door, Bedroom, Interior" },
+      { "label": "Warranty", "value": "Up to 7 Years*" }
+    ],
+    "finishes": [
+      { "name": "Natural Sagwani", "color": "#8b4513" },
+      { "name": "Polished Teak", "color": "#b8860b" },
+      { "name": "Dark Brown", "color": "#654321" },
+      { "name": "Honey Oak", "color": "#cd853f" },
+      { "name": "Cherry Wood", "color": "#9b4d3b" },
+      { "name": "Espresso", "color": "#3e2723" }
+    ],
+    "whyChoose": [
+      "Authentic Sagwani wood for premium quality",
+      "Traditional craftsmanship with modern techniques",
+      "Exceptional strength and longevity",
+      "Natural beauty that enhances with age",
+      "Customizable designs to match your requirements"
+    ]
+  }
+]
