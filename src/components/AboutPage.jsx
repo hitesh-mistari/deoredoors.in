@@ -1,13 +1,11 @@
 import React from 'react';
 import PageHeader from './PageHeader';
-import Breadcrumb from './Breadcrumb';
 import { Award, Users, TrendingUp } from 'lucide-react';
 import shopImage from '../assets/images/deore-door-shop.webp';
 
 const AboutPage = () => {
   return (
     <div>
-      <Breadcrumb />
       <PageHeader
         title={
           <>

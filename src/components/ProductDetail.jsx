@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Breadcrumb from './Breadcrumb';
 
 const ProductDetail = () => {
   const [activeImage, setActiveImage] = useState(0);
@@ -34,8 +33,6 @@ const ProductDetail = () => {
   return (
     <div className="product-page" style={{ paddingTop: '100px' }}>
       <div className="container">
-        <Breadcrumb />
-
         {/* Main Product Info */}
         <div style={mainGridStyle}>
           {/* Left: Gallery */}
