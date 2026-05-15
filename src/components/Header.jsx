@@ -41,10 +41,11 @@ const Header = () => {
     <header style={dynamicHeaderStyle}>
       <div className="container" style={navContainerStyle}>
         <Link to="/" style={logoStyle} onClick={closeMobileMenu} className="header-logo">
-          <div style={logoWrapperStyle}>
-            <h1 style={logoTitleStyle}>DEORE DOOR</h1>
-            <p style={logoSubtitleStyle}>And Modular Furniture</p>
-          </div>
+          <img 
+            src="/images/logo.png" 
+            alt="Deore Doors - Premium Doors and Modular Furniture" 
+            style={logoImageStyle}
+          />
         </Link>
         
         {/* Desktop Navigation */}
@@ -101,6 +102,12 @@ const headerStyle = {
   color: 'white',
 };
 
+const logoImageStyle = {
+  height: '60px',
+  width: 'auto',
+  objectFit: 'contain',
+};
+
 const navContainerStyle = {
   display: 'flex',
   alignItems: 'center',
@@ -112,6 +119,28 @@ const logoStyle = {
   display: 'flex',
   alignItems: 'center',
   gap: '10px',
+};
+
+const logoWrapperStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const logoTitleStyle = {
+  fontSize: '1.4rem',
+  fontWeight: 700,
+  margin: 0,
+  letterSpacing: '1px',
+  lineHeight: 1.2,
+};
+
+const logoSubtitleStyle = {
+  fontSize: '0.65rem',
+  textTransform: 'uppercase',
+  letterSpacing: '1.5px',
+  opacity: 0.8,
+  margin: 0,
+  lineHeight: 1.3,
 };
 
 const logoWrapperStyle = {
@@ -223,11 +252,8 @@ if (typeof document !== 'undefined') {
     }
     
     @media (max-width: 480px) {
-      .header-logo h1 {
-        font-size: 1.2rem !important;
-      }
-      .header-logo p {
-        font-size: 0.55rem !important;
+      .header-logo img {
+        height: 50px !important;
       }
     }
     

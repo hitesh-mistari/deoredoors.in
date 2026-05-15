@@ -8,8 +8,12 @@ const Footer = () => {
       <div className="container">
         <div style={footerGridStyle}>
           <div style={footerColStyle}>
-            <h3 style={{ marginBottom: '20px' }}>DEORE DOOR</h3>
-            <p style={{ opacity: 0.7, fontSize: '0.9rem' }}>
+            <img 
+              src="/images/logo.png" 
+              alt="Deore Doors" 
+              style={footerLogoStyle}
+            />
+            <p style={{ opacity: 0.7, fontSize: '0.9rem', marginTop: '15px' }}>
               Your destination for premium quality doors and modular furniture in Nashik. We blend durability with style.
             </p>
           </div>
@@ -47,6 +51,13 @@ const footerStyle = {
   background: '#121212',
   color: 'white',
   padding: '80px 0 30px 0',
+};
+
+const footerLogoStyle = {
+  height: '70px',
+  width: 'auto',
+  objectFit: 'contain',
+  marginBottom: '10px',
 };
 
 const footerGridStyle = {
@@ -99,6 +110,11 @@ if (typeof document !== 'undefined') {
       footer ul {
         align-items: center;
       }
+      
+      footer img[alt="Deore Doors"] {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
     
     @media (max-width: 480px) {
@@ -108,6 +124,10 @@ if (typeof document !== 'undefined') {
       
       footer h3, footer h4 {
         font-size: 1.2rem;
+      }
+      
+      footer img[alt="Deore Doors"] {
+        height: 60px !important;
       }
     }
   `;
