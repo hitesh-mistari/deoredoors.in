@@ -121,50 +121,6 @@ const logoStyle = {
   gap: '10px',
 };
 
-const logoWrapperStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-};
-
-const logoTitleStyle = {
-  fontSize: '1.4rem',
-  fontWeight: 700,
-  margin: 0,
-  letterSpacing: '1px',
-  lineHeight: 1.2,
-};
-
-const logoSubtitleStyle = {
-  fontSize: '0.65rem',
-  textTransform: 'uppercase',
-  letterSpacing: '1.5px',
-  opacity: 0.8,
-  margin: 0,
-  lineHeight: 1.3,
-};
-
-const logoWrapperStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-};
-
-const logoTitleStyle = {
-  fontSize: '1.4rem',
-  fontWeight: 700,
-  margin: 0,
-  letterSpacing: '1px',
-  lineHeight: 1.2,
-};
-
-const logoSubtitleStyle = {
-  fontSize: '0.65rem',
-  textTransform: 'uppercase',
-  letterSpacing: '1.5px',
-  opacity: 0.8,
-  margin: 0,
-  lineHeight: 1.3,
-};
-
 const navStyle = {
   flex: '1 1 auto',
   display: 'flex',
