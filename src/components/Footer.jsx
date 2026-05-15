@@ -58,6 +58,7 @@ const footerLogoStyle = {
   width: 'auto',
   objectFit: 'contain',
   marginBottom: '10px',
+  filter: 'brightness(0) invert(1)',
 };
 
 const footerGridStyle = {

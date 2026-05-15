@@ -106,6 +106,7 @@ const logoImageStyle = {
   height: '60px',
   width: 'auto',
   objectFit: 'contain',
+  filter: 'brightness(0) invert(1)',
 };
 
 const navContainerStyle = {
