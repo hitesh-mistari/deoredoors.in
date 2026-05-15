@@ -10,22 +10,21 @@ const Hero = () => {
         tagline="Quality Doors. Lasting Impressions."
         title={
           <>
-            Doors That <span style={{ color: 'var(--primary)' }}>Define</span><br />
-            <span style={{ color: 'var(--primary)' }}>Your Space</span>
+            Nashik's Trusted<br />
+            <span style={{ color: 'var(--primary)' }}>Door Brand</span>
           </>
         }
         description={
           <>
-            Premium PVC doors, Coating doors, and Sagwani doors
-            crafted with precision and trusted by families across Nashik.
+            Quality doors for homes, offices, and projects with reliable service and fast local delivery.
           </>
         }
         primaryButton={{
-          text: "Explore Products  →",
+          text: "See Available Doors",
           link: "/products"
         }}
         secondaryButton={{
-          text: "Contact Us",
+          text: "Call for Recommendation",
           link: "/contact",
           icon: "phone"
         }}
