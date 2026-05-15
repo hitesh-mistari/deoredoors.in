@@ -10,9 +10,8 @@ const Hero = () => {
         tagline="Quality Doors. Lasting Impressions."
         title={
           <>
-            Doors That <br />
-            <span style={{ color: 'var(--primary)' }}>Define Your</span><br />
-            <span style={{ color: 'var(--primary)' }}>Space</span>
+            Doors That <span style={{ color: 'var(--primary)' }}>Define</span><br />
+            <span style={{ color: 'var(--primary)' }}>Your Space</span>
           </>
         }
         description={
