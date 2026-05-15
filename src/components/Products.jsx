@@ -4,23 +4,23 @@ import productsData from '../data/products.json';
 
 const Products = () => {
   return (
-    <section id="products" className="section-padding">
+    <section id="products" className="section-padding products-section">
       <div className="container">
         <div className="section-title">
           <span>Our Products</span>
           <h2>Crafted for Style. Built for Durability.</h2>
         </div>
-        <div style={gridStyle}>
+        <div className="products-grid">
           {productsData.map(product => (
-            <div key={product.id} style={cardStyle}>
-              <div style={imageContainerStyle}>
-                <img src={product.image} alt={product.name} style={imageStyle} />
-                <div style={iconBadgeStyle}>{product.icon}</div>
+            <div key={product.id} className="product-card">
+              <div className="product-image-container">
+                <img src={product.image} alt={product.name} className="product-image" />
+                <div className="product-icon-badge">{product.icon}</div>
               </div>
-              <div style={cardBodyStyle}>
-                <h3 style={{ marginBottom: '10px' }}>{product.name}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>{product.shortDescription}</p>
-                <Link to={`/product/${product.id}`} style={linkStyle}>Learn More →</Link>
+              <div className="product-card-body">
+                <h3>{product.name}</h3>
+                <p className="product-desc">{product.shortDescription}</p>
+                <Link to={`/product/${product.id}`} className="product-link">Learn More →</Link>
               </div>
             </div>
           ))}
@@ -30,74 +30,126 @@ const Products = () => {
   );
 };
 
-const gridStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-  gap: '30px',
-};
-
-const cardStyle = {
-  background: 'white',
-  borderRadius: '16px',
-  overflow: 'hidden',
-  boxShadow: 'var(--shadow-md)',
-  transition: 'var(--transition)',
-  cursor: 'pointer',
-};
-
-const imageContainerStyle = {
-  height: '350px',
-  position: 'relative',
-  overflow: 'hidden',
-};
-
-const imageStyle = {
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  transition: 'var(--transition)',
-};
-
-const iconBadgeStyle = {
-  position: 'absolute',
-  bottom: '20px',
-  left: '20px',
-  width: '50px',
-  height: '50px',
-  background: 'var(--primary)',
-  borderRadius: '8px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  fontSize: '1.5rem',
-  color: 'white',
-  boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
-};
-
-const cardBodyStyle = {
-  padding: '25px',
-};
-
-const linkStyle = {
-  color: 'var(--primary)',
-  fontWeight: 600,
-  fontSize: '0.9rem',
-};
-
-// Add responsive styles
+// Add styles
 if (typeof document !== 'undefined') {
+  const existingStyle = document.getElementById('products-responsive-styles');
+  if (existingStyle) existingStyle.remove();
+
   const style = document.createElement('style');
+  style.id = 'products-responsive-styles';
   style.textContent = `
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .product-image-container {
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .product-icon-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .product-card-body {
+      padding: 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .product-card-body h3 {
+      margin-bottom: 10px;
+    }
+    
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    
+    .product-link {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
-      section[id="products"] > div > div[style*="grid"] {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
+      .products-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 10px 5px 30px 5px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+        -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+      }
+      
+      .products-grid::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari */
+      }
+      
+      .product-card {
+        min-width: 280px;
+        max-width: 280px;
+        scroll-snap-align: center;
+      }
+      
+      .product-image-container {
+        height: 250px;
       }
     }
     
     @media (max-width: 480px) {
-      section[id="products"] div[style*="height: 350px"] {
-        height: 250px !important;
+      .product-card {
+        min-width: 260px;
+        max-width: 260px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.75rem;
       }
     }
   `;
