@@ -54,7 +54,7 @@ const footerStyle = {
 };
 
 const footerLogoStyle = {
-  height: '70px',
+  height: '90px',
   width: 'auto',
   objectFit: 'contain',
   marginBottom: '10px',
@@ -128,7 +128,7 @@ if (typeof document !== 'undefined') {
       }
       
       footer img[alt="Deore Doors"] {
-        height: 60px !important;
+        height: 75px !important;
       }
     }
   `;

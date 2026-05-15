@@ -103,7 +103,7 @@ const headerStyle = {
 };
 
 const logoImageStyle = {
-  height: '60px',
+  height: '80px',
   width: 'auto',
   objectFit: 'contain',
   filter: 'brightness(0) invert(1)',
@@ -210,7 +210,7 @@ if (typeof document !== 'undefined') {
     
     @media (max-width: 480px) {
       .header-logo img {
-        height: 50px !important;
+        height: 65px !important;
       }
     }
     
