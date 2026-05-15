@@ -1,9 +1,10 @@
-import { ShieldCheck, Wrench, Home } from 'lucide-react';
+import { ShieldCheck, Wrench, Home, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import bgImage from '../assets/images/bg.webp';
 
 const PageHeader = ({ 
   title, 
+  tagline,
   subtitle, 
   description, 
   primaryButton, 
@@ -38,8 +39,11 @@ const PageHeader = ({
   return (
     <section className="page-header-section" style={{ ...heroStyle, height, minHeight, background: `url(${bgImage.src || bgImage}) no-repeat center center/cover` }}>
       <div style={overlayStyle}></div>
-      <div className="container" style={heroContainerStyle}>
+      <div className="container page-header-container" style={heroContainerStyle}>
         <div style={heroContentStyle} className="animate-fade-in page-header-left">
+          {tagline && (
+            <p className="page-header-tagline" style={taglineStyle}>{tagline}</p>
+          )}
           <h1 style={titleStyle} className="page-header-title">
             {title}
           </h1>
@@ -53,8 +57,7 @@ const PageHeader = ({
               {primaryButton && (
                 <Link 
                   to={primaryButton.link} 
-                  className="btn btn-primary" 
-                  style={{ padding: '10px 20px', fontSize: '0.9rem' }}
+                  className="btn btn-primary hero-btn-primary" 
                 >
                   {primaryButton.text}
                 </Link>
@@ -62,9 +65,9 @@ const PageHeader = ({
               {secondaryButton && (
                 <Link 
                   to={secondaryButton.link} 
-                  className="btn btn-outline" 
-                  style={{ padding: '10px 20px', fontSize: '0.9rem' }}
+                  className="btn btn-outline hero-btn-secondary" 
                 >
+                  {secondaryButton.icon === 'phone' && <Phone size={16} strokeWidth={2} />}
                   {secondaryButton.text}
                 </Link>
               )}
@@ -86,7 +89,7 @@ const PageHeader = ({
           </div>
         </div>
 
-        {/* Right side image - only show if provided */}
+        {/* Right side image - visible on all screen sizes */}
         {rightImage && (
           <div style={heroImageContainerStyle} className="page-header-image">
             <img src={rightImage} alt={imageAlt} style={heroImageStyle} />
@@ -97,11 +100,21 @@ const PageHeader = ({
   );
 };
 
+const taglineStyle = {
+  fontStyle: 'italic',
+  fontSize: '1.1rem',
+  color: 'rgba(255,255,255,0.9)',
+  marginBottom: '12px',
+  fontWeight: 400,
+  letterSpacing: '0.3px',
+};
+
 const heroStyle = {
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
   color: 'white',
+  overflow: 'hidden',
 };
 
 const overlayStyle = {
@@ -110,7 +123,7 @@ const overlayStyle = {
   left: 0,
   width: '100%',
   height: '100%',
-  background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%)',
+  background: 'linear-gradient(135deg, rgba(15,10,5,0.92) 0%, rgba(25,18,10,0.85) 40%, rgba(30,20,10,0.6) 70%, rgba(20,15,8,0.4) 100%)',
   zIndex: 0,
 };
 
@@ -121,13 +134,15 @@ const heroContainerStyle = {
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  gap: '40px',
+  gap: '20px',
   height: '100%',
 };
 
 const heroContentStyle = {
-  maxWidth: '650px',
-  flex: '1',
+  maxWidth: '600px',
+  flex: '1 1 auto',
+  position: 'relative',
+  zIndex: 3,
 };
 
 const subtitleTextStyle = {
@@ -138,46 +153,48 @@ const subtitleTextStyle = {
 };
 
 const titleStyle = {
-  fontSize: '3.5rem',
+  fontSize: '3rem',
   lineHeight: 1.1,
   marginBottom: '20px',
-  fontWeight: 600,
-  color: 'white !important',
+  fontWeight: 700,
+  color: 'white',
   position: 'relative',
   zIndex: 3,
 };
 
 const descriptionStyle = {
   fontSize: '1rem',
-  opacity: 0.9,
-  marginBottom: '25px',
-  color: 'white',
+  opacity: 0.85,
+  marginBottom: '30px',
+  color: 'rgba(255,255,255,0.9)',
+  lineHeight: 1.7,
+  maxWidth: '420px',
 };
 
 const btnGroupStyle = {
   display: 'flex',
-  gap: '15px',
-  marginBottom: '35px',
+  gap: '12px',
+  marginBottom: '40px',
   flexWrap: 'wrap',
 };
 
 const statsGroupStyle = {
   display: 'flex',
-  gap: '30px',
+  gap: '25px',
   flexWrap: 'nowrap',
 };
 
 const statItemStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '12px',
+  gap: '10px',
 };
 
 const iconWrapperStyle = {
-  width: '40px',
-  height: '40px',
+  width: '38px',
+  height: '38px',
   borderRadius: '50%',
-  border: '1px solid var(--primary)',
+  border: '1.5px solid var(--primary)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -187,25 +204,26 @@ const iconWrapperStyle = {
 
 const statTitleStyle = {
   fontWeight: 600,
-  fontSize: '0.9rem',
+  fontSize: '0.85rem',
   whiteSpace: 'nowrap',
   color: 'white',
 };
 
 const statSubStyle = {
-  fontSize: '0.8rem',
-  opacity: 0.8,
+  fontSize: '0.75rem',
+  opacity: 0.75,
   whiteSpace: 'nowrap',
   color: 'white',
 };
 
 const heroImageContainerStyle = {
-  flex: '1',
+  flex: '0 0 auto',
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'flex-end',
-  paddingLeft: '50px',
   height: '100%',
+  position: 'relative',
+  zIndex: 2,
 };
 
 const heroImageStyle = {
@@ -213,38 +231,134 @@ const heroImageStyle = {
   height: '100%',
   objectFit: 'contain',
   objectPosition: 'bottom',
-  filter: 'drop-shadow(0 20px 50px rgba(0,0,0,0.5))',
+  filter: 'drop-shadow(0 10px 40px rgba(0,0,0,0.6))',
 };
 
 // Scoped responsive styles using class-based selectors
 if (typeof document !== 'undefined') {
+  // Remove old page-header styles if already appended
+  const existingStyle = document.getElementById('page-header-responsive');
+  if (existingStyle) existingStyle.remove();
+
   const style = document.createElement('style');
+  style.id = 'page-header-responsive';
   style.textContent = `
     .page-header-title {
       color: white !important;
     }
+
+    .hero-btn-primary {
+      padding: 14px 28px !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      border-radius: 8px !important;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-btn-secondary {
+      padding: 14px 28px !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      border-radius: 8px !important;
+      border: 1.5px solid var(--primary) !important;
+      color: white !important;
+      gap: 10px !important;
+    }
+
+    .hero-btn-secondary:hover {
+      background: rgba(194, 120, 41, 0.15) !important;
+    }
     
-    @media (max-width: 992px) {
+    /* Desktop - image visible */
+    @media (min-width: 993px) {
       .page-header-image {
-        display: none !important;
+        max-width: 550px;
+      }
+    }
+
+    /* Tablet */
+    @media (max-width: 992px) {
+      .page-header-container {
+        position: relative !important;
+      }
+      
+      .page-header-image {
+        position: absolute !important;
+        right: -20px !important;
+        bottom: 0 !important;
+        top: auto !important;
+        height: 75% !important;
+        max-width: 380px !important;
+        pointer-events: none !important;
+      }
+      
+      .page-header-left {
+        max-width: 100% !important;
+        width: 100% !important;
       }
     }
     
+    /* Mobile - show image behind text with overlay */
     @media (max-width: 768px) {
       .page-header-section {
-        min-height: 450px !important;
+        min-height: auto !important;
         height: auto !important;
-        padding: 100px 0 50px !important;
+        padding: 100px 0 40px !important;
+      }
+      
+      .page-header-container {
+        flex-direction: row !important;
+        align-items: flex-end !important;
+        position: relative !important;
+      }
+      
+      .page-header-image {
+        position: absolute !important;
+        right: -5px !important;
+        bottom: 0 !important;
+        height: 85% !important;
+        max-width: 380px !important;
+        pointer-events: none !important;
+      }
+      
+      .page-header-image img {
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%) !important;
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%) !important;
+      }
+      
+      .page-header-left {
+        position: relative !important;
+        z-index: 3 !important;
+        max-width: 100% !important;
       }
       
       .page-header-title {
-        font-size: 2.2rem !important;
-        line-height: 1.2 !important;
+        font-size: 2.5rem !important;
+        line-height: 1.15 !important;
+      }
+      
+      .page-header-tagline {
+        font-size: 0.95rem !important;
       }
       
       .page-header-desc {
         font-size: 0.9rem !important;
-        line-height: 1.5 !important;
+        line-height: 1.6 !important;
+        max-width: 65% !important;
+      }
+      
+      .page-header-btns {
+        flex-direction: column !important;
+        gap: 10px !important;
+        max-width: 240px !important;
+      }
+      
+      .hero-btn-primary,
+      .hero-btn-secondary {
+        padding: 12px 24px !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+        justify-content: center !important;
       }
       
       .page-header-stats {
@@ -252,48 +366,83 @@ if (typeof document !== 'undefined') {
         flex-wrap: wrap !important;
       }
       
-      .page-header-btns {
-        margin-bottom: 25px !important;
+      .page-header-stat-item {
+        gap: 8px !important;
       }
     }
     
+    /* Small mobile */
     @media (max-width: 480px) {
       .page-header-section {
-        padding: 90px 0 40px !important;
-        min-height: 400px !important;
+        padding: 90px 0 30px !important;
       }
       
       .page-header-title {
-        font-size: 1.8rem !important;
-        line-height: 1.2 !important;
+        font-size: 2rem !important;
+        line-height: 1.15 !important;
+        margin-bottom: 14px !important;
+      }
+      
+      .page-header-tagline {
+        font-size: 0.85rem !important;
+        margin-bottom: 8px !important;
       }
       
       .page-header-desc {
-        font-size: 0.85rem !important;
-        line-height: 1.5 !important;
+        font-size: 0.82rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 20px !important;
+        max-width: 60% !important;
+      }
+      
+      .page-header-image {
+        height: 80% !important;
+        max-width: 340px !important;
+        right: -8px !important;
       }
       
       .page-header-btns {
-        flex-direction: column;
-        width: 100%;
+        margin-bottom: 25px !important;
+        max-width: 200px !important;
       }
       
-      .page-header-btns .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 16px !important;
-        font-size: 0.85rem !important;
+      .hero-btn-primary,
+      .hero-btn-secondary {
+        padding: 10px 18px !important;
+        font-size: 0.82rem !important;
       }
       
       .page-header-stats {
-        flex-direction: column !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
         gap: 12px !important;
-        align-items: flex-start !important;
       }
       
-      .page-header-stat-item svg {
-        width: 16px !important;
-        height: 16px !important;
+      .page-header-stat-item {
+        flex: 0 0 auto !important;
+      }
+      
+      .page-header-stat-item > div:last-child p:first-child {
+        font-size: 0.75rem !important;
+      }
+      
+      .page-header-stat-item > div:last-child p:last-child {
+        font-size: 0.65rem !important;
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 380px) {
+      .page-header-title {
+        font-size: 1.7rem !important;
+      }
+      
+      .page-header-image {
+        max-width: 260px !important;
+      }
+      
+      .page-header-stats {
+        gap: 10px !important;
       }
     }
   `;
