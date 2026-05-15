@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, User, Package, Image, Phone } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,57 +38,83 @@ const Header = () => {
   };
 
   return (
-    <header style={dynamicHeaderStyle}>
-      <div className="container" style={navContainerStyle}>
-        <Link to="/" style={logoStyle} onClick={closeMobileMenu} className="header-logo">
-          <img 
-            src="/images/logo.png" 
-            alt="Deore Doors - Premium Doors and Modular Furniture" 
-            style={logoImageStyle}
-          />
-        </Link>
-        
-        {/* Desktop Navigation */}
-        <nav style={navStyle}>
-          <ul style={ulStyle}>
-            <li><Link to="/" style={pathname === '/' ? activeLinkStyle : {}}>Home</Link></li>
-            <li><Link to="/about" style={pathname === '/about' ? activeLinkStyle : {}}>About Us</Link></li>
-            <li><Link to="/products" style={pathname === '/products' ? activeLinkStyle : {}}>Our Products</Link></li>
-            <li><Link to="/gallery" style={pathname === '/gallery' ? activeLinkStyle : {}}>Gallery</Link></li>
-            <li><Link to="/contact" style={pathname === '/contact' ? activeLinkStyle : {}}>Contact Us</Link></li>
-          </ul>
-        </nav>
-        
-        {/* Desktop CTA Button */}
-        <Link to="/contact" className="btn btn-primary desktop-cta" style={{ padding: '10px 20px' }}>Get a Quote</Link>
-        
-        {/* Mobile Menu Toggle - Gold rounded button */}
-        <button 
-          className="mobile-menu-toggle"
-          style={mobileMenuToggleStyle} 
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMobileMenuOpen && (
-        <div style={mobileMenuStyle} className="mobile-menu-overlay">
-          <nav style={mobileNavStyle}>
-            <ul style={mobileUlStyle}>
-              <li><Link to="/" style={pathname === '/' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Home</Link></li>
-              <li><Link to="/about" style={pathname === '/about' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>About Us</Link></li>
-              <li><Link to="/products" style={pathname === '/products' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Our Products</Link></li>
-              <li><Link to="/gallery" style={pathname === '/gallery' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Gallery</Link></li>
-              <li><Link to="/contact" style={pathname === '/contact' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Contact Us</Link></li>
+    <>
+      <header style={dynamicHeaderStyle}>
+        <div className="container" style={navContainerStyle}>
+          <Link to="/" style={logoStyle} onClick={closeMobileMenu} className="header-logo">
+            <img 
+              src="/images/logo.png" 
+              alt="Deore Doors - Premium Doors and Modular Furniture" 
+              style={logoImageStyle}
+            />
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav style={navStyle}>
+            <ul style={ulStyle}>
+              <li><Link to="/" style={pathname === '/' ? activeLinkStyle : {}}>Home</Link></li>
+              <li><Link to="/about" style={pathname === '/about' ? activeLinkStyle : {}}>About Us</Link></li>
+              <li><Link to="/products" style={pathname === '/products' ? activeLinkStyle : {}}>Our Products</Link></li>
+              <li><Link to="/gallery" style={pathname === '/gallery' ? activeLinkStyle : {}}>Gallery</Link></li>
+              <li><Link to="/contact" style={pathname === '/contact' ? activeLinkStyle : {}}>Contact Us</Link></li>
             </ul>
-            <Link to="/contact" className="btn btn-primary" style={{ width: '100%', marginTop: '20px' }} onClick={closeMobileMenu}>Get a Quote</Link>
           </nav>
+          
+          {/* Desktop CTA Button */}
+          <Link to="/contact" className="btn btn-primary desktop-cta" style={{ padding: '10px 20px' }}>Get a Quote</Link>
+          
+          {/* Mobile Menu Toggle - Gold rounded button */}
+          <button 
+            className="mobile-menu-toggle"
+            style={mobileMenuToggleStyle} 
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div style={mobileMenuStyle} className="mobile-menu-overlay">
+            <nav style={mobileNavStyle}>
+              <ul style={mobileUlStyle}>
+                <li><Link to="/" style={pathname === '/' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Home</Link></li>
+                <li><Link to="/about" style={pathname === '/about' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>About Us</Link></li>
+                <li><Link to="/products" style={pathname === '/products' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Our Products</Link></li>
+                <li><Link to="/gallery" style={pathname === '/gallery' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Gallery</Link></li>
+                <li><Link to="/contact" style={pathname === '/contact' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Contact Us</Link></li>
+              </ul>
+              <Link to="/contact" className="btn btn-primary" style={{ width: '100%', marginTop: '20px' }} onClick={closeMobileMenu}>Get a Quote</Link>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {/* Mobile Bottom Navigation - App-like */}
+      <nav className="mobile-bottom-nav" style={mobileBottomNavStyle}>
+        <Link to="/" style={pathname === '/' ? { ...bottomNavItemStyle, ...bottomNavActiveStyle } : bottomNavItemStyle}>
+          <Home size={20} strokeWidth={2} />
+          <span style={bottomNavLabelStyle}>Home</span>
+        </Link>
+        <Link to="/about" style={pathname === '/about' ? { ...bottomNavItemStyle, ...bottomNavActiveStyle } : bottomNavItemStyle}>
+          <User size={20} strokeWidth={2} />
+          <span style={bottomNavLabelStyle}>About</span>
+        </Link>
+        <Link to="/products" style={pathname === '/products' ? { ...bottomNavItemStyle, ...bottomNavActiveStyle } : bottomNavItemStyle}>
+          <Package size={20} strokeWidth={2} />
+          <span style={bottomNavLabelStyle}>Products</span>
+        </Link>
+        <Link to="/gallery" style={pathname === '/gallery' ? { ...bottomNavItemStyle, ...bottomNavActiveStyle } : bottomNavItemStyle}>
+          <Image size={20} strokeWidth={2} />
+          <span style={bottomNavLabelStyle}>Gallery</span>
+        </Link>
+        <Link to="/contact" style={pathname === '/contact' ? { ...bottomNavItemStyle, ...bottomNavActiveStyle } : bottomNavItemStyle}>
+          <Phone size={20} strokeWidth={2} />
+          <span style={bottomNavLabelStyle}>Contact</span>
+        </Link>
+      </nav>
+    </>
   );
 };
 
@@ -188,6 +214,44 @@ const mobileLinkStyle = {
   borderBottom: '1px solid rgba(255,255,255,0.08)',
 };
 
+// Mobile Bottom Navigation Styles
+const mobileBottomNavStyle = {
+  display: 'none',
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  background: 'white',
+  backdropFilter: 'blur(10px)',
+  borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+  padding: '8px 0',
+  zIndex: 1000,
+  boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
+};
+
+const bottomNavItemStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 1,
+  padding: '6px 0',
+  color: 'rgba(0,0,0,0.5)',
+  textDecoration: 'none',
+  transition: 'all 0.3s ease',
+  gap: '4px',
+};
+
+const bottomNavActiveStyle = {
+  color: 'var(--primary)',
+};
+
+const bottomNavLabelStyle = {
+  fontSize: '0.65rem',
+  fontWeight: 500,
+  marginTop: '2px',
+};
+
 // Add media query styles via CSS
 if (typeof document !== 'undefined') {
   const existingStyle = document.getElementById('header-responsive');
@@ -205,6 +269,22 @@ if (typeof document !== 'undefined') {
       }
       .mobile-menu-toggle {
         display: flex !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-bottom-nav {
+        display: flex !important;
+      }
+      
+      /* Hide the hamburger menu on mobile since we have bottom nav */
+      .mobile-menu-toggle {
+        display: none !important;
+      }
+      
+      /* Add padding to body to account for bottom nav */
+      body {
+        padding-bottom: 60px;
       }
     }
     

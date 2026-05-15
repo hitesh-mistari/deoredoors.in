@@ -1,25 +1,25 @@
 import React from 'react';
-import whyTrustImage from '../../public/images/door/why-trust-deore-doors.png';
+import { User, Award, DoorOpen, Truck, Phone, Store } from 'lucide-react';
 
 const WhyTrustUs = () => {
   const features = [
     {
-      icon: '👤',
+      icon: <User size={24} color="#d97706" />,
       title: 'Expert Guidance',
       description: 'Get practical door suggestions from experienced professionals.'
     },
     {
-      icon: '🏆',
+      icon: <Award size={24} color="#d97706" />,
       title: 'Quality You Can See',
       description: 'Visit our showroom and check the quality before you choose.'
     },
     {
-      icon: '🚪',
+      icon: <DoorOpen size={24} color="#d97706" />,
       title: 'Custom Door Solutions',
       description: 'Doors in PVC, Coating, Sagwan & more – made for your space.'
     },
     {
-      icon: '🚚',
+      icon: <Truck size={24} color="#d97706" />,
       title: 'Fast Local Delivery',
       description: 'Quick delivery across Nashik, right when you need it.'
     }
@@ -32,7 +32,7 @@ const WhyTrustUs = () => {
           {/* Left Side - Image */}
           <div style={imageContainerStyle}>
             <img 
-              src={whyTrustImage} 
+              src="/images/door/why-trust-deore-doors.png"
               alt="Why Trust Deore Doors" 
               style={imageStyle}
             />
@@ -48,26 +48,30 @@ const WhyTrustUs = () => {
             </div>
 
             <div style={featuresGridStyle}>
+              <div style={dividerStyle}></div>
               {features.map((feature, index) => (
-                <div key={index} style={featureCardStyle}>
-                  <div style={iconContainerStyle}>
-                    <span style={iconStyle}>{feature.icon}</span>
+                <React.Fragment key={index}>
+                  <div style={featureCardStyle} className="why-trust-feature">
+                    <div style={iconContainerStyle}>
+                      {feature.icon}
+                    </div>
+                    <div style={featureContentStyle}>
+                      <h3 style={featureTitleStyle}>{feature.title}</h3>
+                      <p style={featureDescStyle}>{feature.description}</p>
+                    </div>
                   </div>
-                  <div style={featureContentStyle}>
-                    <h3 style={featureTitleStyle}>{feature.title}</h3>
-                    <p style={featureDescStyle}>{feature.description}</p>
-                  </div>
-                </div>
+                  <div style={dividerStyle}></div>
+                </React.Fragment>
               ))}
             </div>
 
             <div style={ctaContainerStyle}>
               <a href="tel:+917350131608" style={callButtonStyle}>
-                <span style={buttonIconStyle}>📞</span>
+                <span style={buttonIconStyle}><Phone size={20} /></span>
                 Call Us Now
               </a>
               <a href="/contact" style={visitButtonStyle}>
-                <span style={buttonIconStyle}>🏪</span>
+                <span style={buttonIconStyle}><Store size={20} /></span>
                 Visit Showroom
               </a>
             </div>
@@ -80,7 +84,7 @@ const WhyTrustUs = () => {
 
 const sectionStyle = {
   padding: '80px 0',
-  background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)',
+  background: '#ffffff',
   position: 'relative',
   overflow: 'hidden',
 };
@@ -110,13 +114,12 @@ const imageStyle = {
   maxWidth: '500px',
   height: 'auto',
   borderRadius: '20px',
-  boxShadow: '0 20px 60px rgba(0,0,0,0.1)',
 };
 
 const contentStyle = {
   display: 'flex',
   flexDirection: 'column',
-  gap: '30px',
+  gap: '20px',
 };
 
 const headerStyle = {
@@ -148,33 +151,31 @@ const brandStyle = {
 const featuresGridStyle = {
   display: 'flex',
   flexDirection: 'column',
-  gap: '20px',
+};
+
+const dividerStyle = {
+  height: '1px',
+  backgroundColor: '#e2e8f0',
+  width: '100%',
 };
 
 const featureCardStyle = {
   display: 'flex',
-  gap: '15px',
-  padding: '20px',
-  background: 'white',
-  borderRadius: '12px',
-  boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-  cursor: 'pointer',
+  gap: '20px',
+  padding: '20px 0',
+  background: 'transparent',
+  alignItems: 'center',
 };
 
 const iconContainerStyle = {
-  width: '60px',
-  height: '60px',
-  borderRadius: '12px',
-  background: 'linear-gradient(135deg, #fff5e6 0%, #ffe4b3 100%)',
+  width: '50px',
+  height: '50px',
+  borderRadius: '50%',
+  border: '2px solid #fef3c7',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   flexShrink: 0,
-};
-
-const iconStyle = {
-  fontSize: '1.8rem',
 };
 
 const featureContentStyle = {
@@ -198,7 +199,7 @@ const featureDescStyle = {
 const ctaContainerStyle = {
   display: 'flex',
   gap: '15px',
-  marginTop: '10px',
+  marginTop: '20px',
 };
 
 const callButtonStyle = {
@@ -235,7 +236,8 @@ const visitButtonStyle = {
 };
 
 const buttonIconStyle = {
-  fontSize: '1.2rem',
+  display: 'flex',
+  alignItems: 'center',
 };
 
 // Add responsive styles and hover effects
@@ -246,12 +248,6 @@ if (typeof document !== 'undefined') {
   const style = document.createElement('style');
   style.id = 'why-trust-us-styles';
   style.textContent = `
-    /* Hover effects */
-    .why-trust-feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
-    }
-    
     a[href="tel:+917350131608"]:hover {
       background: #b45309 !important;
       transform: translateY(-2px);
@@ -286,7 +282,7 @@ if (typeof document !== 'undefined') {
         font-size: 1.75rem !important;
       }
       
-      div[style*="display: flex"][style*="gap: 15px"][style*="marginTop: 10px"] {
+      div[style*="display: flex"][style*="gap: 15px"][style*="marginTop: 20px"] {
         flex-direction: column !important;
       }
       

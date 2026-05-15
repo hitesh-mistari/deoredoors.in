@@ -54,4 +54,36 @@ const tooltipStyle = {
   transform: 'translateX(10px)',
 };
 
+// Add responsive styles for mobile
+if (typeof document !== 'undefined') {
+  const existingStyle = document.getElementById('whatsapp-button-responsive');
+  if (existingStyle) existingStyle.remove();
+
+  const style = document.createElement('style');
+  style.id = 'whatsapp-button-responsive';
+  style.textContent = `
+    /* Move WhatsApp button above bottom navigation on mobile */
+    @media (max-width: 768px) {
+      .whatsapp-sticky {
+        bottom: 90px !important;
+        right: 20px !important;
+        width: 55px !important;
+        height: 55px !important;
+      }
+    }
+    
+    .whatsapp-sticky:hover {
+      transform: scale(1.1);
+      background-color: #128C7E;
+    }
+    
+    .whatsapp-sticky:hover span {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 export default WhatsAppButton;

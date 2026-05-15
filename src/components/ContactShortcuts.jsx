@@ -74,4 +74,39 @@ const tooltipStyle = {
   transform: 'translateX(10px)',
 };
 
+// Add responsive styles for mobile
+if (typeof document !== 'undefined') {
+  const existingStyle = document.getElementById('contact-shortcuts-responsive');
+  if (existingStyle) existingStyle.remove();
+
+  const style = document.createElement('style');
+  style.id = 'contact-shortcuts-responsive';
+  style.textContent = `
+    /* Move buttons above bottom navigation on mobile */
+    @media (max-width: 768px) {
+      div[style*="position: fixed"][style*="bottom: 30px"][style*="right: 30px"] {
+        bottom: 90px !important;
+        right: 20px !important;
+      }
+      
+      .shortcut-btn {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      
+      .whatsapp-btn img {
+        width: 28px !important;
+        height: 28px !important;
+      }
+    }
+    
+    .shortcut-btn:hover span {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 export default ContactShortcuts;
