@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -23,9 +24,15 @@ const Footer = () => {
           </div>
           <div style={footerColStyle}>
             <h4 style={{ marginBottom: '20px' }}>Contact Info</h4>
-            <p style={{ opacity: 0.7, fontSize: '0.9rem', marginBottom: '10px' }}>📍 Nashik, Maharashtra, India</p>
-            <p style={{ opacity: 0.7, fontSize: '0.9rem', marginBottom: '10px' }}>📞 +91 73501 31608</p>
-            <p style={{ opacity: 0.7, fontSize: '0.9rem' }}>📧 info@deoredoors.in</p>
+            <p style={{ opacity: 0.7, fontSize: '0.9rem', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <MapPin size={18} /> Nashik, Maharashtra, India
+            </p>
+            <p style={{ opacity: 0.7, fontSize: '0.9rem', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Phone size={18} /> +91 73501 31608
+            </p>
+            <p style={{ opacity: 0.7, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Mail size={18} /> info@deoredoors.in
+            </p>
           </div>
         </div>
         <div style={bottomStyle}>

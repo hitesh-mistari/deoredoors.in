@@ -16,11 +16,9 @@ export default function HowToReach() {
               Deore Doors
             </h2>
             <div className="title-underline"></div>
-            
+
             <p className="reach-description">
-              Visit our showroom near Ambad Link Road, Nashik.<br />
-              We are easily accessible from Trimurti Chowk, Mumbai Naka,<br />
-              Pathardi Phata and Ambad MIDC.
+              Visit our showroom.
             </p>
 
             {/* Contact Cards */}
@@ -58,9 +56,9 @@ export default function HowToReach() {
 
             {/* Action Buttons */}
             <div className="reach-actions">
-              <a 
-                href="https://maps.google.com/?q=Deore+Doors+Ambad+Link+Road+Nashik" 
-                target="_blank" 
+              <a
+                href="https://maps.google.com/?q=Deore+Doors+Ambad+Link+Road+Nashik"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary btn-directions"
               >
@@ -68,8 +66,8 @@ export default function HowToReach() {
                 Get Directions
                 <ArrowRight size={18} />
               </a>
-              <a 
-                href="tel:7350131608" 
+              <a
+                href="tel:7350131608"
                 className="btn-secondary btn-call"
               >
                 <Phone size={20} />
@@ -80,9 +78,9 @@ export default function HowToReach() {
 
           {/* Right Side - Map */}
           <div className="reach-map">
-            <img 
-              src={mapImage} 
-              alt="Map showing how to reach Deore Doors showroom at Ambad Link Road, Nashik" 
+            <img
+              src={mapImage}
+              alt="Map showing how to reach Deore Doors showroom at Ambad Link Road, Nashik"
               loading="lazy"
             />
           </div>

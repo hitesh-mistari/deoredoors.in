@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from './PageHeader';
+import Breadcrumb from './Breadcrumb';
 import { Package, Sparkles, Shield } from 'lucide-react';
 
 const ProductsPage = () => {
@@ -36,6 +37,7 @@ const ProductsPage = () => {
 
   return (
     <div>
+      <Breadcrumb />
       <PageHeader
         title={
           <>

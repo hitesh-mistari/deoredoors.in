@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Breadcrumb from './Breadcrumb';
 
 const ProductDetail = () => {
   const [activeImage, setActiveImage] = useState(0);
@@ -33,10 +34,7 @@ const ProductDetail = () => {
   return (
     <div className="product-page" style={{ paddingTop: '100px' }}>
       <div className="container">
-        {/* Breadcrumbs */}
-        <nav style={breadcrumbStyle}>
-          <a href="#home">Home</a> <span>›</span> <a href="#products">Our Products</a> <span>›</span> <strong>PVC Doors</strong>
-        </nav>
+        <Breadcrumb />
 
         {/* Main Product Info */}
         <div style={mainGridStyle}>
@@ -157,12 +155,6 @@ const ProductDetail = () => {
       </div>
     </div>
   );
-};
-
-const breadcrumbStyle = {
-  fontSize: '0.85rem',
-  color: '#888',
-  marginBottom: '30px',
 };
 
 const mainGridStyle = {

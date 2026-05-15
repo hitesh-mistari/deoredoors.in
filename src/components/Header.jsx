@@ -30,18 +30,21 @@ const Header = () => {
 
   const dynamicHeaderStyle = {
     ...headerStyle,
-    background: shouldShowDark ? '#121212' : 'transparent',
-    boxShadow: shouldShowDark ? 'var(--shadow-md)' : 'none',
+    background: shouldShowDark ? 'rgba(18,18,18,0.98)' : 'transparent',
+    boxShadow: shouldShowDark ? '0 2px 20px rgba(0,0,0,0.3)' : 'none',
     position: shouldShowDark ? 'fixed' : 'absolute',
+    backdropFilter: shouldShowDark ? 'blur(10px)' : 'none',
     transition: 'all 0.3s ease',
   };
 
   return (
     <header style={dynamicHeaderStyle}>
       <div className="container" style={navContainerStyle}>
-        <Link to="/" style={logoStyle} onClick={closeMobileMenu}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>DEORE DOOR</h1>
-          <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '1px', opacity: 0.8 }}>And Modular Furniture</p>
+        <Link to="/" style={logoStyle} onClick={closeMobileMenu} className="header-logo">
+          <div style={logoWrapperStyle}>
+            <h1 style={logoTitleStyle}>DEORE DOOR</h1>
+            <p style={logoSubtitleStyle}>And Modular Furniture</p>
+          </div>
         </Link>
         
         {/* Desktop Navigation */}
@@ -58,19 +61,20 @@ const Header = () => {
         {/* Desktop CTA Button */}
         <Link to="/contact" className="btn btn-primary desktop-cta" style={{ padding: '10px 20px' }}>Get a Quote</Link>
         
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Toggle - Gold rounded button */}
         <button 
+          className="mobile-menu-toggle"
           style={mobileMenuToggleStyle} 
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div style={mobileMenuStyle}>
+        <div style={mobileMenuStyle} className="mobile-menu-overlay">
           <nav style={mobileNavStyle}>
             <ul style={mobileUlStyle}>
               <li><Link to="/" style={pathname === '/' ? { ...mobileLinkStyle, ...activeLinkStyle } : mobileLinkStyle} onClick={closeMobileMenu}>Home</Link></li>
@@ -88,7 +92,7 @@ const Header = () => {
 };
 
 const headerStyle = {
-  padding: '20px 0',
+  padding: '15px 0',
   position: 'absolute',
   top: 0,
   left: 0,
@@ -105,6 +109,31 @@ const navContainerStyle = {
 
 const logoStyle = {
   flex: '0 0 auto',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '10px',
+};
+
+const logoWrapperStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const logoTitleStyle = {
+  fontSize: '1.4rem',
+  fontWeight: 700,
+  margin: 0,
+  letterSpacing: '1px',
+  lineHeight: 1.2,
+};
+
+const logoSubtitleStyle = {
+  fontSize: '0.65rem',
+  textTransform: 'uppercase',
+  letterSpacing: '1.5px',
+  opacity: 0.8,
+  margin: 0,
+  lineHeight: 1.3,
 };
 
 const navStyle = {
@@ -128,20 +157,27 @@ const activeLinkStyle = {
 
 const mobileMenuToggleStyle = {
   display: 'none',
-  background: 'transparent',
+  background: 'var(--primary)',
   border: 'none',
   color: 'white',
   cursor: 'pointer',
-  padding: '8px',
+  padding: '10px',
+  borderRadius: '10px',
+  width: '44px',
+  height: '44px',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: 0,
 };
 
 const mobileMenuStyle = {
   position: 'fixed',
-  top: '80px',
+  top: '75px',
   left: 0,
   right: 0,
-  background: '#121212',
-  boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+  background: 'rgba(18,18,18,0.98)',
+  backdropFilter: 'blur(10px)',
+  boxShadow: '0 4px 30px rgba(0,0,0,0.4)',
   zIndex: 99,
   animation: 'slideDown 0.3s ease',
 };
@@ -163,12 +199,16 @@ const mobileLinkStyle = {
   padding: '15px 10px',
   fontSize: '1rem',
   fontWeight: 500,
-  borderBottom: '1px solid rgba(255,255,255,0.1)',
+  borderBottom: '1px solid rgba(255,255,255,0.08)',
 };
 
 // Add media query styles via CSS
 if (typeof document !== 'undefined') {
+  const existingStyle = document.getElementById('header-responsive');
+  if (existingStyle) existingStyle.remove();
+
   const style = document.createElement('style');
+  style.id = 'header-responsive';
   style.textContent = `
     @media (max-width: 992px) {
       nav[style*="flex: 1 1 auto"] {
@@ -177,8 +217,17 @@ if (typeof document !== 'undefined') {
       .desktop-cta {
         display: none !important;
       }
-      button[aria-label="Toggle menu"] {
-        display: block !important;
+      .mobile-menu-toggle {
+        display: flex !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header-logo h1 {
+        font-size: 1.2rem !important;
+      }
+      .header-logo p {
+        font-size: 0.55rem !important;
       }
     }
     

@@ -1,10 +1,12 @@
 import React from 'react';
 import PageHeader from './PageHeader';
+import Breadcrumb from './Breadcrumb';
 import { MapPin, Phone, Clock } from 'lucide-react';
 
 const ContactPage = () => {
   return (
     <div>
+      <Breadcrumb />
       <PageHeader
         title={
           <>

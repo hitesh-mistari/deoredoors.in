@@ -54,8 +54,7 @@
 .contact-card {
   display: flex;
   align-items: center;
-  background-color: #f6efe6;
-  padding: 15px 20px;
+  padding: 10px 0px;
   border-radius: 12px;
   gap: 15px;
 }

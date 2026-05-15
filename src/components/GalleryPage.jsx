@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHeader from './PageHeader';
+import Breadcrumb from './Breadcrumb';
 import { Image, Eye, Star } from 'lucide-react';
 import photos from '../data/gallery.json';
 
@@ -8,6 +9,7 @@ const GalleryPage = () => {
 
   return (
     <div>
+      <Breadcrumb />
       <PageHeader
         title={
           <>
