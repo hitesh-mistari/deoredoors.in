@@ -84,11 +84,11 @@ const WhyTrustUs = () => {
 
 // Add responsive styles and hover effects
 if (typeof document !== 'undefined') {
-  const existingStyle = document.getElementById('why-trust-us-styles-v2');
+  const existingStyle = document.getElementById('why-trust-us-styles-v3');
   if (existingStyle) existingStyle.remove();
 
   const style = document.createElement('style');
-  style.id = 'why-trust-us-styles-v2';
+  style.id = 'why-trust-us-styles-v3';
   style.textContent = `
     .why-trust-section {
       padding: 80px 0;
@@ -98,53 +98,56 @@ if (typeof document !== 'undefined') {
     }
     
     .why-trust-container {
-      maxWidth: 1200px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
     
     .why-trust-wrapper {
       display: grid;
-      gridTemplateColumns: 1fr 1fr;
+      grid-template-columns: 1fr 1.2fr;
       gap: 60px;
-      alignItems: center;
+      align-items: center;
     }
     
     .why-trust-image-container {
       position: relative;
       display: flex;
-      justifyContent: center;
-      alignItems: center;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
     
     .why-trust-image {
       width: 100%;
-      maxWidth: 500px;
       height: auto;
-      borderRadius: 20px;
+      max-width: 500px;
+      border-radius: 20px;
+      object-fit: contain;
     }
     
     .why-trust-content {
       display: flex;
-      flexDirection: column;
+      flex-direction: column;
       gap: 20px;
+      width: 100%;
     }
     
     .why-trust-subtitle {
-      fontSize: 0.9rem;
-      fontWeight: 600;
+      font-size: 0.9rem;
+      font-weight: 600;
       color: #d97706;
-      letterSpacing: 2px;
-      marginBottom: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
       display: block;
     }
     
     .why-trust-title {
-      fontSize: 2.8rem;
-      fontWeight: 700;
+      font-size: 2.8rem;
+      font-weight: 700;
       color: #1a202c;
-      lineHeight: 1.1;
-      marginBottom: 0;
+      line-height: 1.1;
+      margin-bottom: 0;
     }
     
     .why-trust-brand {
@@ -153,12 +156,13 @@ if (typeof document !== 'undefined') {
     
     .why-trust-features-grid {
       display: flex;
-      flexDirection: column;
+      flex-direction: column;
+      width: 100%;
     }
     
     .why-trust-divider {
       height: 1px;
-      backgroundColor: #e2e8f0;
+      background-color: #e2e8f0;
       width: 100%;
     }
     
@@ -167,79 +171,79 @@ if (typeof document !== 'undefined') {
       gap: 20px;
       padding: 20px 0;
       background: transparent;
-      alignItems: center;
+      align-items: center;
     }
     
     .why-trust-icon-box {
       width: 50px;
       height: 50px;
-      borderRadius: 50%;
+      border-radius: 50%;
       border: 2px solid #fef3c7;
       display: flex;
-      alignItems: center;
-      justifyContent: center;
-      flexShrink: 0;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
     
     .why-trust-feature-title {
-      fontSize: 1.1rem;
-      fontWeight: 600;
+      font-size: 1.1rem;
+      font-weight: 600;
       color: #1a202c;
-      marginBottom: 5px;
+      margin-bottom: 5px;
     }
     
     .why-trust-feature-desc {
-      fontSize: 0.9rem;
+      font-size: 0.9rem;
       color: #718096;
-      lineHeight: 1.5;
+      line-height: 1.5;
       margin: 0;
     }
     
     .why-trust-cta {
       display: flex;
       gap: 15px;
-      marginTop: 10px;
+      margin-top: 10px;
     }
     
     .why-trust-btn-call {
       display: flex;
-      alignItems: center;
+      align-items: center;
       gap: 10px;
       padding: 14px 28px;
       background: #d97706;
       color: white;
-      borderRadius: 8px;
-      textDecoration: none;
-      fontWeight: 600;
-      fontSize: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
       transition: all 0.3s ease;
-      boxShadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
     }
     
     .why-trust-btn-visit {
       display: flex;
-      alignItems: center;
+      align-items: center;
       gap: 10px;
       padding: 14px 28px;
       background: white;
       color: #d97706;
-      borderRadius: 8px;
-      textDecoration: none;
-      fontWeight: 600;
-      fontSize: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
       transition: all 0.3s ease;
       border: 2px solid #d97706;
     }
     
     .why-trust-btn-icon {
       display: flex;
-      alignItems: center;
+      align-items: center;
     }
     
     .why-trust-btn-call:hover {
       background: #b45309;
       transform: translateY(-2px);
-      boxShadow: 0 6px 15px rgba(217, 119, 6, 0.3);
+      box-shadow: 0 6px 15px rgba(217, 119, 6, 0.3);
     }
     
     .why-trust-btn-visit:hover {
@@ -250,7 +254,7 @@ if (typeof document !== 'undefined') {
     /* Responsive styles */
     @media (max-width: 1024px) {
       .why-trust-title {
-        fontSize: 2.4rem;
+        font-size: 2.4rem;
       }
       .why-trust-wrapper {
         gap: 40px;
@@ -263,14 +267,14 @@ if (typeof document !== 'undefined') {
       }
       .why-trust-wrapper {
         grid-template-columns: 1fr;
-        gap: 50px;
-        text-align: center;
+        gap: 40px;
       }
       .why-trust-image-container {
         order: 2;
       }
       .why-trust-content {
         order: 1;
+        text-align: center;
         align-items: center;
       }
       .why-trust-feature-item {
@@ -280,7 +284,7 @@ if (typeof document !== 'undefined') {
         justify-content: center;
       }
       .why-trust-image {
-        max-width: 400px;
+        max-width: 450px;
       }
     }
     
@@ -291,6 +295,7 @@ if (typeof document !== 'undefined') {
       .why-trust-cta {
         flex-direction: column;
         width: 100%;
+        gap: 12px;
       }
       .why-trust-btn-call, .why-trust-btn-visit {
         width: 100%;
@@ -298,6 +303,7 @@ if (typeof document !== 'undefined') {
       }
       .why-trust-feature-item {
         gap: 15px;
+        padding: 15px 0;
       }
       .why-trust-icon-box {
         width: 40px;
@@ -305,6 +311,7 @@ if (typeof document !== 'undefined') {
       }
       .why-trust-image {
         max-width: 100%;
+        border-radius: 12px;
       }
     }
   `;
